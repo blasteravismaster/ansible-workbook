@@ -1,0 +1,257 @@
+service.tms.1.host=10.201.96.30
+service.tms.1.port=1799
+service.tms.sendFr1TmsMessages = true
+
+database.connectionPool.checkoutTimeout=0
+sqlMapFactory.lobHandler=org.springframework.jdbc.support.lob.OracleLobHandler
+database.driverClassName=oracle.jdbc.driver.OracleDriver
+database.url=jdbc:oracle:thin:@//10.201.96.30:1535/PS
+database.username=PS
+database.password=PS
+# database.encryptionEnabled is used to force the database.password to be encrypted.
+database.encryptionEnabled=false
+database.addOracleTag=false
+
+service.cache.1.host=UPC
+service.cache.1.port=11211
+#service.cache.2.host=<MEMCACHED SERVER2 HOST>
+#service.cache.2.port=<MEMCACHED SERVER2 POPT, usually = 11211>
+useMemcached=false
+# The maximum number of seconds each key-value pair is kept in cache
+#24 hours
+maxCachingInterval  = 86400
+
+#Some of mandatory elements of the data model can have a default value
+#specifying which value should be set in the case if it did not arrive with API information.
+ps.household.uiLanguage.1  = nl
+ps.household.uiLanguage.2  = nl
+ps.household.uiLanguage.3  = de
+ps.household.uiLanguage.4  = fr
+ps.household.uiLanguage.5  = nn
+ps.household.uiLanguage.6  = sv
+ps.household.uiLanguage.7  = ga
+ps.household.uiLanguage.8  = de
+ps.household.uiLanguage.9  = hu
+ps.household.uiLanguage.10 = cs
+ps.household.uiLanguage.11 = sk
+ps.household.uiLanguage.12 = ro
+ps.household.uiLanguage.13 = hu
+ps.household.uiLanguage.14 = pl
+ps.household.uiLanguage.15 = ro
+ps.household.uiLanguage.16 = de
+
+ps.household.country.1  =  nl
+ps.household.country.2  =  be
+ps.household.country.3  =  at
+ps.household.country.4  =  fr
+ps.household.country.5  =  no
+ps.household.country.6  =  se
+ps.household.country.7  =  ie
+ps.household.country.8  =  ch
+ps.household.country.9  =  hu
+ps.household.country.10 =  cz
+ps.household.country.11 =  sk
+ps.household.country.12 =  ro
+ps.household.country.13 =  hu
+ps.household.country.14 =  pl
+ps.household.country.15 =  ro
+ps.household.country.16 =  de
+
+ps.household.houseHoldFlags.flagMasterPersonalization = true
+ps.household.status = Activated
+ps.household.cpeInfo.mpin = 0000
+ps.household.cpeInfo.flagUseMpinForPurchase = true
+ps.household.defaultSpendingLimit = 50
+
+ps.profile.age = Any
+ps.profile.gender = Home
+ps.profile.channelBarTimeout = 5
+ps.profile.arrInfoMaxRecordings = 20
+ps.profile.flagShareContent = true
+ps.profile.flagAutomaticRecordings = false
+ps.profile.flagShowEmailNotifications = true
+ps.profile.flagShowPhoneNotifications = true
+ps.profile.flagVoiceMailNotification = true
+ps.profile.flagReminderNotification = true
+ps.profile.flagTargetMessageNotification = true
+ps.profile.flagAudioDescription = false
+ps.profile.flagSubtitlesPresentation = false
+ps.profile.flagHardOfHearingSubtitle = false
+
+ps.profile.flagWidgetNotification = true
+ps.profile.flagAuditoryFeedback = false
+ps.profile.flagFavoriteChannelFilterActive = false
+
+ps.profile.tvGuideAppearance.flagOverlayVideo = true
+ps.profile.tvGuideAppearance.flagFullScreenWithMiniTv = false
+
+ps.profile.assetsView.store = MOSAIC
+ps.profile.assetsView.library = LIST
+
+ps.profile.dragAndDrop.SkipFwdDuration = 30
+ps.profile.dragAndDrop.SkipRwdDuration = 30
+
+ps.profile.widget.flagWidgetsAutorunInBackground = false
+ps.profile.widget.flagWidgetsShowInLibrary = true
+ps.profile.flagFavoriteChanneFilterActive = false
+ps.entitlment.flagViewed = true
+
+#ps.configuration.channelBarHERequestTimeOut = 0 ##### INCORRECT NAMING
+service.pps.1.host = localhost
+service.vodlib.1.host = localhost
+
+
+# The CPE will connect to the specific server if the string ?securityscheme=DRM_SCHEME exists in the end of the URL.
+ps.configuration.SERVERS.CMDC.URL=http://um.upc.com:9090?securityscheme=DRM_SCHEME
+#ps.configuration.SERVERS.CMDC.URL=http://cmdc.um-lab.fr.upc.com:9090
+ps.configuration.SERVERS.CMDC.timeout=25
+ps.configuration.SERVERS.CMDC.numRetries=3
+
+ps.configuration.SERVERS.TMS.URL=http://um.upc.com:1797
+#ps.configuration.SERVERS.TMS.URL=http://tms.um-lab.fr.upc.com:1797
+ps.configuration.SERVERS.TMS.timeout=5
+ps.configuration.SERVERS.TMS.numRetries=3
+
+ps.configuration.SERVERS.MDS.URL=http://mdshost:8090
+ps.configuration.SERVERS.MDS.timeout=5
+ps.configuration.SERVERS.MDS.numRetries=3
+
+ps.configuration.SERVERS.AMS_PROXY.URL=http://um.upc.com:9293/ams_proxy?securityscheme=DRM_SCHEME
+#ps.configuration.SERVERS.AMS_PROXY.URL=http://ams.um-lab.fr.upc.com:8080/ams_proxy
+ps.configuration.SERVERS.AMS_PROXY.timeout=2
+ps.configuration.SERVERS.AMS_PROXY.numRetries=3
+
+ps.configuration.SERVERS.TRAXIS_SRM.URL=rtsp://srmhost:554
+ps.configuration.SERVERS.TRAXIS_SRM.timeout=5
+ps.configuration.SERVERS.TRAXIS_SRM.numRetries=3
+
+ps.configuration.SERVERS.IMAGE_SERVER.URL=http://172.30.80.116
+#ps.configuration.SERVERS.IMAGE_SERVER.URL=http://imagehost:8080
+ps.configuration.SERVERS.IMAGE_SERVER.timeout=5
+ps.configuration.SERVERS.IMAGE_SERVER.numRetries=3
+
+ps.configuration.SERVERS.WEBSITE_PROXY.URL=http://webproxyhost:5511
+ps.configuration.SERVERS.WEBSITE_PROXY.timeout=5
+ps.configuration.SERVERS.WEBSITE_PROXY.numRetries=3
+
+ps.configuration.SERVERS.WEBSITE_PROXY_HTTPS.URL=https://webproxyhost:8443
+ps.configuration.SERVERS.WEBSITE_PROXY_HTTPS.timeout=5
+ps.configuration.SERVERS.WEBSITE_PROXY_HTTPS.numRetries=3
+
+#ps.configuration.SERVERS.ACS.URL=http://acs.upc.com:8080/dps/TR069
+ps.configuration.SERVERS.ACS.URL=http://10.62.13.92:8080/dps/TR069
+#ps.configuration.SERVERS.ACS.URL=http://acs.um-lab.fr.upc.com:8080/dps/TR069
+ps.configuration.SERVERS.ACS.timeout=5
+ps.configuration.SERVERS.ACS.numRetries=3
+
+ps.configuration.SERVERS.PPS_VOD.URL=http://um.upc.com:6060
+#ps.configuration.SERVERS.PPS_VOD.URL=http://pps.um-lab.fr.upc.com:6060
+ps.configuration.SERVERS.PPS_VOD.timeout=5
+ps.configuration.SERVERS.PPS_VOD.numRetries=3
+
+ps.configuration.LANGUAGES.1=it
+ps.configuration.LANGUAGES.2=en
+ps.configuration.LANGUAGES.3=tr
+#ps.configuration.LANGUAGES.4=fr
+ps.configuration.LANGUAGES.4=de
+#ps.configuration.LANGUAGES.15=ro
+
+ps.configuration.widgetSupported=true
+
+#Example of default widgets definition,
+#use it, when will have concrete data.
+#ps.configuration.DEFAULT_WIDGETS.1=widget1
+#ps.configuration.DEFAULT_WIDGETS.2=widget2
+#ps.configuration.DEFAULT_WIDGETS.3=widget3
+
+ps.configuration.common.channelBarHERequestTimeOut=3
+ps.configuration.common.reverseGridMaxDepth = 168
+ps.configuration.common.smartrecMobilityEnabled = true
+
+service.pps.1.host = 10.201.96.30
+#service.pps.1.port = 6060
+
+#service.vodlib.1.host = localhost
+#service.vodlib.1.port = 6060
+
+######## Preferences ##########
+# Parental Level Threshold for the Household
+ps.household.preferences.ParentalRatingThreshold=15
+
+ps.configuration.timezoneInfo.localTimeOffset=+04:00
+ps.configuration.timezoneInfo.timeOfChange=2015-08-20T05:55:00
+ps.configuration.timezoneInfo.nextTimeOffset=+01:00
+
+// ActiveMQ configurations:
+service.queue.type=ActiveMQ
+service.queue.connections.1.host=localhost
+service.queue.connections.1.port=61616
+#service.queue.connections.1.jmxPort=3900
+
+service.queue.messageExpirationTime=0
+service.queue.producerTimeout=0
+service.queue.attachRetryDelay=10000
+
+ch.ps.messageQueue.optInOut.queueName = MOO.HZN.OPT_IN_OUT.request.queue
+ch.ps.messageQueue.optInOut.isEnabled = false
+ch.ps.messageQueue.optInOut.numOfThreads = 10
+#service.queue.isEnabled = ${ch.ps.messageQueue.optInOut.isEnabled}
+# Enable security authentication. (Default value: true)
+#service.queue.security.isEnabled = ${ch.ps.messageQueue.optInOut.isEnabled}
+#User name for accessing the Queue with security
+service.queue.security.userName = user
+service.queue.security.password = pass
+
+# TMS message timeout in units of days
+#======================================
+#service.tms.messageTimeout.default=
+#
+#  service.tms.messageTimeout.default:
+#  Default TMS message timeout, if the timeout of the specific message type is not defined
+#  Default value is 30 days.
+#
+#  The rest of the timeout per message type are not defined by default, and uses the value
+#  of the service.tms.messageTimeout.default configuration. It is possible to set different
+#  value for a specific message type, using the following configuration parameters:
+#
+#service.tms.messageTimeout.resetMpin=
+#service.tms.messageTimeout.propertyChange=
+#service.tms.messageTimeout.householdChange=
+#service.tms.messageTimeout.profileChange=
+#service.tms.messageTimeout.toggleAms=
+
+
+#  service.tms.whiteList.default:
+#  Default TMS device type whitelist. PS will send TMS messages only to devices within this
+#  list. The properties receives list of device types. The device types
+#  are case-insensitive. The default value for the whitelist is Gateway, Interactive and IpZapper
+#
+#service.tms.whiteList.default.1 = Gateway
+#service.tms.whiteList.default.2 = Interactive
+service.tms.whiteList.default.3 = IpZapper
+#
+#
+#  It is possible to set different values for a specific message type, using the following
+#  properties:
+#
+#service.tms.whiteList.deviceType.resetMpin.1
+#service.tms.whiteList.deviceType.resetMpin.2
+#service.tms.whiteList.deviceType.resetMpin.3
+# ...
+#service.tms.whiteList.deviceType.propertyChange.1
+# ...
+#service.tms.whiteList.deviceType.householdChange.1
+# ...
+#service.tms.whiteList.deviceType.profileChange.1
+# ...
+#service.tms.whiteList.deviceType.toggleAms.1
+# ...
+
+ch.ps.xml.printMasterPerFlagLastUpdate = false
+
+configuration.dynamicConfigReload.enabled=true
+
+#For FT372 - Tracking for audience measurement
+ps.configuration.common.AMS_Client_chunkedMode=false
+ps.configuration.common.AMS_Client_recurrentWindow=4
+ps.configuration.common.AMS_Client_maxLogFiles=30

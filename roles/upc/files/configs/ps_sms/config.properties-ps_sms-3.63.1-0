@@ -1,0 +1,71 @@
+# http server host - useful when binding with specific NIC or for VIP support. Default value is: local ip address.
+service.psSms.http.host=10.201.96.30
+# http server port. Default value is: 8080.
+service.psSms.http.port=1795
+# minimal number of http server worker threads. Default value is: 100.\
+service.psSms.http.minThreads=10
+#maximum number of http server worker threads. Default value is: 1000.
+service.psSms.http.maxThreads=100
+# idle time after which the connection will be closed. Default value is: 180000.
+service.psSms.http.connectionIdleTime=5000
+# A description of the service used for monitoring purposes.
+# Determines whether the 'Availability Filter' is enabled or not. Default value is: false.
+
+#service.psSms.http.availabilityFilter.isEnabled
+#service.psSms.http.flowContextFilter.isEnabled
+#service.psSms.http.pingFilter.isEnabled
+service.psSms.http.monitoringFilter.isEnabled = false
+#service.psSms.http.requestValidityFilter.isEnabled
+#service.psSms.http.requestValidityFilter.maxContentLength
+#service.psSms.http.traceFilter.isEnabled
+#service.psSms.http.traceFilter.maxBodyLength
+#service.psSms.http.traceFilter.textContentTypes
+#service.psSms.http.traceFilter.printInHex
+#service.psSms.http.crossOriginFilter.isEnabled
+#service.psSms.http.crossOriginFilter.allowedOrigins
+#service.psSms.http.crossOriginFilter.allowedMethods
+#service.psSms.http.crossOriginFilter.allowedHeaders
+#service.psSms.http.crossOriginFilter.preflightMaxAge
+#service.psSms.http.crossOriginFilter.allowCredentials
+#service.psSms.http.crossOriginFilter.exposedHeaders
+#service.psSms.http.crossOriginFilter.chainPreflight
+
+# Execute statistics auditor every configured time  
+# CRON expression (http://en.wikipedia.org/wiki/CRON_expression)
+# every 60 seconds 
+ch.ps.psSms.statisticsauditor.jobSchedule=0 0 0/1 * * ?
+
+################# PS monitoring ####################
+ch.ps.psSms.monitoring=true
+service.mxagentRegistry.innerPort=4205
+ch.ps.psSms.monitoring.instance=1
+
+# When psSms receives an HTTP PUT request from CSPIRE of SMS,
+# psSms sends an HTTP GET request to the EDS component of the SMS to get Household data.
+service.eds.1.host=10.201.96.19
+service.eds.1.port=1800
+service.eds.userName=user
+service.eds.password=pass
+
+#The URL, to be sent in the TMS message payload to CPE, for "Refresh Household Data" use case. 
+ch.ps.psSms.getHouseholdUrl=http://10.201.96.30:1796/ps/households/
+
+#Eventis server is used on "Update Household" use case.
+service.traxis.1.host=10.62.115.23
+service.traxis.1.port=80
+#ch.ps.psSms.requestToEventis.path = traxis/SubscriptionNotification.traxis
+ch.ps.psSms.requestToEventis.host=10.201.96.19
+ch.ps.psSms.requestToEventis.port=1800
+ch.ps.psSms.requestToEventis.path = eventis/SubscriptionNotification
+
+# if PPS is installed and running, turn on (set to 'true') in order to sync PS and PPS. Default = false
+#service.pps.isEnabled = false
+
+ch.ps.psSms.xmlFileContainingDefaultProfile=DefaultProfile.xml
+
+# For VOD library notification: turn on/off
+#service.vodlib.isEnabled = false
+
+service.vodlib.isEnabled = true
+service.vodlib.1.host = localhost
+

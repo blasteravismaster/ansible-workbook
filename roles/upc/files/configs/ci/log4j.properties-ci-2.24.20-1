@@ -1,0 +1,88 @@
+#----------------------------------------------------
+# This file controls the logging strategy for Catalog Import
+#----------------------------------------------------
+
+#----------------------------------------------------
+# This is the default logger, which is mandatory
+#----------------------------------------------------
+log4j.loggerFactory=com.nds.cab.infra.logging.CABLogFactory
+log4j.rootLogger=error,logfile
+
+#----------------------------------------------------
+# Required in order to enable persistence logging of 
+#application state
+#----------------------------------------------------
+#CABLogger.applicationstateEnabled=true
+
+#---------------------------------------------
+# Appender for Application/System log
+#---------------------------------------------
+log4j.logger.com.nds=debug
+#-------------------------------------
+# Appender for Session/Request logging
+#---------------------------------------
+log4j.logger.com.nds.catalog.requestlog=debug
+#---------------------------
+# Definition of Appenders
+#---------------------------
+
+#------------------------------------------------------------------------------
+# In order to use the CAB Logging logging pattern as detailed in the 
+# requirements, this "TimeAndSizeRollingAppender" appender should be
+# used. There are some parameters that have default values passed to
+# this appender but they can be overridden in the config file. 
+# Mandatory parameters in the config file are: 
+# file - file name including path of the base file. 
+# layout - the layout to use. Must be: "EnhancedPatternLayout". 
+
+# Optional parameters in the config file are: 
+# DatePattern - the date pattern that will appear in
+# the log file name after rolling the file. 
+# MaxFileSize - the size of the file that when reached will cause file rolling. 
+# MaxRollFileCount - the maximum number of rolling files to be create.
+#   It is highly recommended to use default values here as wrong values may cause data lose. 
+# ConversionPattern - the logging pattern. The default pattern used 
+#    is: %d{yyyy/MM/dd HH:mm:ss.SSS}{UTC} [%c{1}] [%t]: %p: %X{catTerm}: %X{flowCtxt} %m%n. 
+#Override this property only if you want to omit  part of the CAB Logging default parts. 
+#------------------------------------------------------------------------------
+
+#---------------------------------------
+# Definition for System logging Appender
+#---------------------------------------
+
+log4j.appender.logfile.file=/var/log/nds/ci/ci.log
+log4j.appender.logfile.MaxFileSize=100MB
+
+#-------------------------------------------------
+# Development use only, do not edit these parameters
+#-------------------------------------------------
+
+log4j.appender.logfile=org.apache.log4j.appender.TimeAndSizeRollingAppender
+log4j.appender.logfile.layout=com.nds.cab.infra.logging.CABLoggingPatternLayout
+  
+#---------------------------------------
+# Definition for audit logging Appender
+#---------------------------------------
+log4j.logger.audit.com.nds=debug,auditfile
+log4j.logger.audit.com.nds.additivity=false
+log4j.appender.auditfile=org.apache.log4j.appender.TimeAndSizeRollingAppender
+log4j.appender.auditfile.layout=com.nds.cab.infra.logging.CABLoggingPatternLayout
+log4j.appender.auditfile.layout.ConversionPattern=%d{yyyy/MM/dd HH:mm:ss.SSS}{UTC} %-5p: %X{flowCtxt} %pm%n
+log4j.appender.auditfile.MaxFileSize=100MB
+log4j.appender.auditfile.file=/var/log/nds/ci/ci.audit
+  
+#communication utils
+log4j.logger.com.nds.ch.utils.tsocket=error
+ 
+#spring logs
+log4j.logger.org.springframework=error
+ 
+#connection pool component
+log4j.logger.com.mchange=error
+ 
+ # default set to true - archiving enabled
+#CABLogger.archiveFiles=true
+ 
+#default set to true - log and audit are rolled after restart of process
+#CABLogger.rollOnStartup=true
+

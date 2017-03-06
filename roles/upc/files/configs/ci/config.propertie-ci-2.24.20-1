@@ -1,0 +1,463 @@
+### Path to a valid directory in which archive and log files to be stored.
+#ARCHIVE_DIR=/var/log/nds/ci/archive
+
+REQUEST_LOGGING_ENABLED =false
+
+#onitoring configurable parameters
+service.mxagentRegistry.innerPort=3150
+#service.mxagentRegistry.port=3000
+
+ci.componentName=CatalogImport
+ci.instanceName =CatalogImportInstance1
+
+##EventIs specific
+EventIS.TVAMainInterface = true
+EventIS.ServerHost=172.30.80.54
+EventIS.ServiceName=tvamain
+EventIS.ServerPort=9090
+EventIS.SubscribedUrl=tvamain
+EventIS.NotificationHost=10.201.96.30
+EventIS.NotificationPort=5150
+EventIS.TimeOut=300000
+EventIS.NumberOfRetries =3
+#EventIS.ExpirationDateTime =2015-12-14T12:10:20
+EventIS.ExpirationDateTime =2030-12-14T12:10:20
+#EventIS.spilitFileSize=
+EventIS.validator=true
+EventIS.ReadTimeOut=10800
+## EventIS rebuild configuration
+#EventIS.rebuild=
+
+###Casis specific parameters
+Casis.ServerHost = 10.62.13.62
+EventIS.RegionaliseURL =CasisExport 
+Casis.ServerPort = 80
+
+###LSMConnection properties
+#LsmGenericRMI.servicename=LsmGenericRMI
+#LsmGenericRMI.waitingTime=60000
+#LsmGenericRMI.numberOfRetries=3
+#LsmGenericRMI.retryDelay=1500
+LsmGenericRMI.1.host=10.201.96.46
+#LsmGenericRMI.2.host=vgc1b
+
+##NMConnection properties
+#NmGenericRMI.servicename=NmGenericRMI
+#NmGenericRMI.waitingTime=60000
+#NmGenericRMI.numberOfRetries=3
+#NmGenericRMI.retryDelay=1500
+NmGenericRMI.1.host=10.201.96.46
+#NmGenericRMI.2.host=vgc1b
+
+## CCMConnection properties
+#CcmNotificationRMI.servicename=CcmNotificationRMI
+#CcmNotificationRMI.waitingTime=60000
+#CcmNotificationRMI.numberOfRetries=3
+#CcmNotificationRMI.retryDelay=1500
+CcmNotificationRMI.1.host=10.201.96.46
+#CcmNotificationRMI.2.host=
+
+## OASMConnection properties
+#OasmOfferUiRMI.servicename=OasmOfferUiRMI
+#OasmServiceUiRMI.servicename=OasmServiceUiRMI
+#OasmOfferUiRMI.waitingTime=60000
+#OasmOfferUiRMI.numberOfRetries=3
+#OasmOfferUiRMI.retryDelay=1500
+OasmOfferUiRMI.1.host=10.201.96.46
+#OasmOfferUiRMI.2.host=vgc1b
+
+##loadbalancer properties
+#service.rmi.strategy=failOverStrategy
+service.rmi.readTimeout = 30000000
+#service.rmi.innerPort=5159
+#service.enableMultiHost=false
+
+
+##Database Details
+#database.driver=oracle.jdbc.OracleDriver
+database.url=jdbc:oracle:thin:@orcCABHEpkg:1531:CABHE
+database.username=CI
+database.password=E777BA81EA8F98E2D552CA84F3C473B9
+#database.validation.query=select 1 from dual
+#database.timeBetweenEvictionRunsMillis=600000
+#database.minEvictableIdleTimeMillis=78000
+#database.testWhileIdle=true
+#database.testOnBorrow=true
+#database.testOnReturn=false
+#database.numTestsPerEvictionRun=3
+#database.maxIdle=8
+#database.minIdle=0
+
+#Datamaster connection retry timeout in seconds
+
+
+### Password configurations
+## verify password to encrypt contains both upper and lower characters
+#passwordQuality.checkUpperAndLowerCaseIncluded = true 
+ 
+## verify password to encrypt contains numbers
+#passwordQuality.checkNumericCharacterIncluded = true 
+ 
+## verify password to encrypt contains non alphanumeric characters
+#passwordQuality.checkNonAlphaNumericIncluded = true 
+ 
+## verify password to encrypt does not contain any vowel characters (A,E,I,O,U)
+#passwordQuality.checkNoVowelsIncluded = true 
+ 
+## verify password to encrypt meets a minimal length
+#passwordQuality.checkMinimumPasswordLength = true 
+ 
+## sets the minimal length for the password, assuming "checkMinimumPasswordLength" above is set to true
+#passwordQuality.minimumPasswordLength = 10
+
+#FTP Interface specific
+FTP.MainInterface = false
+#FTP.HostName=
+#FTP.Port=21
+#FTP.Directory=Input
+#FTP.UserName=
+#FTP.Password=
+#FTP.PollingInterval=300
+#FTP.NumberOfRetries=3
+#FTP.TimeZoneStringId=Europe/Rome
+
+# Rovi specific
+
+###Catalogue Importer Settings         
+##The maximum size of the various handlelists that resource-catalogue-repository Module will send to datamasters for get api.             
+##Set to 0 or less to disable batching. 
+
+#dm.persistence.batchgetSize = 1000
+
+#ci.adapterName=ROVI
+
+################################################################################
+# Rovi Import Datafacade Implementation Classes
+################################################################################
+
+# Uncomment below for stub datafacade
+#rovi.import.catalogue.repository.class = com.nds.cab.cm.ci.datafacade.delegate.impl.CatalogueRepositoryImpl
+#rovi.import.resource.repository.class = com.nds.cab.cm.ci.datafacade.delegate.impl.ResourceRepositoryImpl
+
+# Uncomment below for real datafacade
+#rovi.import.catalogue.repository.class = com.nds.cab.cm.ci.datafacade.impl.CatalogueRepositoryImpl
+#rovi.import.resource.repository.class = com.nds.cab.cm.ci.datafacade.impl.ResourceRepositoryImpl
+
+################################################################################
+# Rovi Import trigger
+################################################################################
+
+# Whether the Rovi Listings Import is enabled
+#rovi.import.enabled = false
+
+# Start time for the Rovi Listings Import.  Imports take place upon process
+# start and daily thereafter at this specified time.
+#rovi.import.starttime = 04:00
+
+################################################################################
+# Rovi FTP Importer Settings
+################################################################################
+
+# Absolute path on local file system to where ingest data is temporarily stored 
+#(by FTP Importer code)
+#
+# This is also the location of the latest successful import datestamp 
+# (to optimize subsequent imports)
+#rovi.import.local.root.path = /tmp/rovi
+
+# URI to Rovi FTP server
+#rovi.import.ftp.uri = ftp.rovicorp.com
+
+# Credentials for access to Rovi FTP server
+#rovi.import.ftp.username = nds
+
+# Credentials for access to Rovi FTP server
+#rovi.import.ftp.password = $oluTion$
+
+#
+# Packages to consider: only INFORM for now
+#
+
+#rovi.import.remote.root.path.inform = ../RV1-0_Bnd_Infrm_CA
+
+#
+# Archives to consider: PROGRAMS, SCHEDULE, SERIES, supported.
+#
+# Remove any tag to preven import of said type. 
+#
+
+#rovi.import.archive.types.included = PROGRAMS, SCHEDULE, SERIES
+
+################################################################################
+# Rovi Catalogue Importer Persister Settings
+################################################################################
+
+# The maximum size of the various lists that we would send to the Persistence Module for a batch save/delete.
+#
+# Uncomment to set, commented out/negative means indefinite. 
+
+# rovi.import.persistence.batchSaveSize.schedules = 1000
+# rovi.import.persistence.batchSaveSize.contentGroups = 1000
+# rovi.import.persistence.batchSaveSize.contentInstances = 1000
+# rovi.import.persistence.batchSaveSize.selectableContent = 1000
+# rovi.import.persistence.batchSaveSize.creditTerms = 1000
+
+
+################################################################################
+# Rovi Genre Mapping Configuration
+################################################################################
+#
+# Maps Rovi category and genre keywords to UHE genres
+#
+# UHE genre definition format:
+# rovi.import.genreDef.Genres = <genre1>, <genre2>, <genre3>, <genre4>
+#
+# Rovi genre mapping rule format:
+# rovi.import.genreMap.<roviCategory>[.<roviKeyword>] = <UheGenre>
+#
+# Wildcard roviCategory or roviKeyword may be specified with '*'
+################################################################################
+
+# this can be retrieved as an array by Apache commons config
+#rovi.import.genreDef.Genres = Action/Adventure, Mystery/Suspense, Drama, Romance, Sports, Documentary, Horror, Comedy, Sci-Fi, Children & Family, Anime/Animation, LifeStyle, Arts\ &\ Entertainment, News\ &\ Current Affairs, Music
+
+########################################
+# Action/Adventure Mappings
+########################################
+#rovi.import.genreMap.*.action/adventure = Action/Adventure
+
+########################################
+# Mystery/Suspense Mappings
+########################################
+#rovi.import.genreMap.*.mystery\ &\ suspense = Mystery/Suspense
+
+## Note: no "thriller" keyword in Rovi spec
+## Note: "suspense/thriller" also mapped under Horror
+#rovi.import.genreMap.Children's.suspense/thriller = Mystery/Suspense
+#rovi.import.genreMap.Movie.suspense/thriller = Mystery/Suspense
+#rovi.import.genreMap.Other.suspense/thriller = Mystery/Suspense
+
+########################################
+# Drama Mappings
+########################################
+#rovi.import.genreMap.*.drama = Drama
+#rovi.import.genreMap.*.crime\ drama = Drama
+
+########################################
+# Romance Mappings
+########################################
+#rovi.import.genreMap.*.romance = Romance
+
+########################################
+# Sports Mappings
+########################################
+#rovi.import.genreMap.Sports = Sports
+
+## Note: "outdoor" also mapped under Lifestyle
+#rovi.import.genreMap.*.outdoors = Sports
+
+## Note: many "sports" keywords in Rovi spec, mapping the other sports as well
+#rovi.import.genreMap.*.motor\ sports = Sports
+#rovi.import.genreMap.*.celebrity\ sports = Sports
+#rovi.import.genreMap.*.extreme\ sports = Sports
+#rovi.import.genreMap.*.sports = Sports
+#rovi.import.genreMap.*.sports\ stuff = Sports
+#rovi.import.genreMap.*.action\ sports = Sports
+#rovi.import.genreMap.*.water\ sports = Sports
+#rovi.import.genreMap.*.winter\ sports = Sports
+#rovi.import.genreMap.*.roller\ sports = Sports
+
+########################################
+# Documentary Mappings
+########################################
+#rovi.import.genreMap.*.biography = Documentary
+#rovi.import.genreMap.*.documentary = Documentary
+#rovi.import.genreMap.*.history = Documentary
+
+########################################
+# Horror Mappings
+########################################
+#rovi.import.genreMap.*.horror = Horror
+
+## Note: "suspense/thriller" also mapped under Mystery/Suspense
+#rovi.import.genreMap.Children's.suspense/thriller = Horror
+#rovi.import.genreMap.Movie.suspense/thriller = Horror
+#rovi.import.genreMap.Other.suspense/thriller = Horror
+
+########################################
+# Comedy Mappings
+########################################
+#rovi.import.genreMap.*.comedy = Comedy
+#rovi.import.genreMap.*.comedy-drama = Comedy
+
+########################################
+# Sci-Fi Mappings
+########################################
+#rovi.import.genreMap.*.sci-fi = Sci-Fi
+#rovi.import.genreMap.*.fantasy = Sci-Fi
+
+########################################
+# Children & Family Mappings
+########################################
+#rovi.import.genreMap.Children's = Children & Family
+
+## Note: "educational" also mapped under Lifestyle
+#rovi.import.genreMap.Children's.educational = Children & Family
+#rovi.import.genreMap.Other.educational = Children & Family
+
+## Note: "entertainment" also mapped under Arts & Entertainment
+#rovi.import.genreMap.Children's.entertainment = Children & Family
+#rovi.import.genreMap.Lifestyle.entertainment = Children & Family
+#rovi.import.genreMap.Movie.entertainment = Children & Family
+#rovi.import.genreMap.Music.entertainment = Children & Family
+#rovi.import.genreMap.News.entertainment = Children & Family
+#rovi.import.genreMap.Other.entertainment = Children & Family
+#rovi.import.genreMap.Sports.entertainment = Children & Family
+#rovi.import.genreMap.*.family = Children & Family
+
+########################################
+# Anime/Animation Mappings
+########################################
+#rovi.import.genreMap.*.animated = Anime/Animation
+
+########################################
+# LifeStyle Mappings
+########################################
+## Note: spelling of LifeStyle (from Cogeco)
+#rovi.import.genreMap.Lifestyle = LifeStyle
+#rovi.import.genreMap.*.business\ &\ finance = LifeStyle
+
+## Note: "educational" also mapped under Children & Family
+#rovi.import.genreMap.Other.educational = LifeStyle
+#rovi.import.genreMap.Children's.educational = LifeStyle
+
+#rovi.import.genreMap.*.food = LifeStyle
+#rovi.import.genreMap.*.health\ &\ fitness = LifeStyle
+#rovi.import.genreMap.*.hobbies\ &\ crafts = LifeStyle
+#rovi.import.genreMap.*.home\ &\ garden = LifeStyle
+#rovi.import.genreMap.*.nature = LifeStyle
+#rovi.import.genreMap.*.religion = LifeStyle
+#rovi.import.genreMap.*.science\ &\ technology = LifeStyle
+#rovi.import.genreMap.*.shopping = LifeStyle
+#rovi.import.genreMap.*.travel = LifeStyle
+
+########################################
+# Arts & Entertainment Mappings
+########################################
+#rovi.import.genreMap.*.awards = Arts & Entertainment
+
+## Note: "entertainment" also mapped under Children & Family
+#rovi.import.genreMap.Children's.entertainment = Arts & Entertainment
+#rovi.import.genreMap.Lifestyle.entertainment = Arts & Entertainment
+#rovi.import.genreMap.Movie.entertainment = Arts & Entertainment
+#rovi.import.genreMap.Music.entertainment = Arts & Entertainment
+#rovi.import.genreMap.News.entertainment = Arts & Entertainment
+#rovi.import.genreMap.Other.entertainment = Arts & Entertainment
+#rovi.import.genreMap.Sports.entertainment = Arts & Entertainment
+#rovi.import.genreMap.*.game\ show = Arts & Entertainment
+#rovi.import.genreMap.*.magazine = Arts & Entertainment
+#rovi.import.genreMap.*.reality = Arts & Entertainment
+
+########################################
+# News & Current Affairs Mappings
+########################################
+#rovi.import.genreMap.News = News & Current Affairs
+#rovi.import.genreMap.*.newscast = News & Current Affairs
+#rovi.import.genreMap.*.newsmagazine = News & Current Affairs
+#rovi.import.genreMap.*.talk = News & Current Affairs
+
+########################################
+# Music Mappings
+########################################
+#rovi.import.genreMap.Music = Music
+#rovi.import.genreMap.*.music = Music
+#rovi.import.genreMap.*.music\ videos = Music
+#rovi.import.genreMap.*.musical = Music
+
+
+########################################
+# Additional Mappings
+########################################
+#rovi.import.genreMap.*.cartoon = Anime/Animation
+#rovi.import.genreMap.*.sitcom = Comedy
+#rovi.import.genreMap.*.politics = News & Current Affairs
+#rovi.import.genreMap.*.talk = News & Current Affairs
+#rovi.import.genreMap.Other.ice\ skating = Sports
+#rovi.import.genreMap.Other.soccer = Sports
+#rovi.import.genreMap.Other.card\ game = Sports
+#rovi.import.genreMap.*.soap\ opera = Drama
+#rovi.import.genreMap.Other.science = LifeStyle
+#rovi.import.genreMap.*.western = Action/Adventure
+#rovi.import.genreMap.Other.pets = LifeStyle
+#rovi.import.genreMap.Other.basketball = Sports
+#rovi.import.genreMap.Other.football = Sports
+#rovi.import.genreMap.Other.auto\ racing = Sports
+#rovi.import.genreMap.Other.fishing = Sports
+#rovi.import.genreMap.Other.hockey = Sports
+#rovi.import.genreMap.Other.baseball = Sports
+#rovi.import.genreMap.Other.weather = LifeStyle
+#rovi.import.genreMap.Other.current\ affairs = News & Current Affairs
+#rovi.import.genreMap.Other.interview = News & Current Affairs
+#rovi.import.genreMap.Other.pageant = Arts & Entertainment
+
+########################################
+# Rating Mappings
+########################################
+
+#RCQ
+ratings.RCQ.G=G
+ratings.RCQ.8+=PG
+ratings.RCQ.13+=14+
+ratings.RCQ.16+=18+
+ratings.RCQ.18+=18+
+        
+#OFRB
+ratings.OFRB.G=G
+ratings.OFRB.PG=PG
+ratings.OFRB.14A=14+
+ratings.OFRB.R=18+
+ratings.OFRB.18A=18+
+ratings.OFRB.NR=18+
+        
+#MPAA
+ratings.MPAA.G=G
+ratings.MPAA.PG=PG
+ratings.MPAA.PG13=14+
+ratings.MPAA.R=18+
+ratings.MPAA.NC17=18+
+ratings.MPAA.NR=18+
+ratings.MPAA.X=Adult
+        
+#CTV
+ratings.CTV.C=C
+ratings.CTV.C8=C8
+ratings.CTV.G=G
+ratings.CTV.PG=PG
+ratings.CTV.=PG
+ratings.CTV.14+=14+
+ratings.CTV.18+=18+
+        
+#FCTV
+ratings.FCTV.8+=C8
+ratings.FCTV.G=G
+ratings.FCTV.=PG
+ratings.FCTV.13+=14+
+ratings.FCTV.16+=18+
+ratings.FCTV.18+=18+
+        
+#US-TV
+ratings.USTV.TVY=C
+ratings.USTV.TVY7=C8
+ratings.USTV.TVG=G
+ratings.USTV.TVPG=PG
+ratings.USTV.=18+
+ratings.USTV.TV14=14+
+ratings.USTV.TVMA=18+
+
+## Default Sort Type Mapping Based on TVA Group Type
+ci.defaultSort.groupType.nndspresentation=urn:nnds:metro:metadata:SortTypeCS:2015:groupOrder
+ci.defaultSort.groupType.nndsseries=urn:nnds:metro:metadata:SortTypeCS:2015:episodeNumber
+ci.defaultSort.groupType.nndsshow=urn:nnds:metro:metadata:SortTypeCS:2015:groupOrder
+ci.defaultSort.groupType.series=urn:nnds:metro:metadata:SortTypeCS:2015:episodeNumber
+ci.defaultSort.groupType.show=urn:nnds:metro:metadata:SortTypeCS:2015:seasonNumber
+

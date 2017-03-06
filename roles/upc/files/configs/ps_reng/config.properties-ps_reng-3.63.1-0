@@ -1,0 +1,38 @@
+service.psReng.http.host=0.0.0.0
+# http server port. Default value is: 8080.
+service.psReng.http.port=1792
+# minimal number of http server worker threads. Default value is: 100.
+service.psReng.http.minThreads=10
+#maximum number of http server worker threads. Default value is: 1000.
+service.psReng.http.maxThreads=500
+# idle time after which the connection will be closed. Default value is: 180000.
+service.psReng.http.connectionIdleTime=5000
+
+#service.psReng.http.availabilityFilter.isEnabled
+#service.psReng.http.flowContextFilter.isEnabled
+#service.psReng.http.pingFilter.isEnabled
+service.psReng.http.monitoringFilter.isEnabled = false
+#service.psReng.http.requestValidityFilter.isEnabled
+#service.psReng.http.requestValidityFilter.maxContentLength
+#service.psReng.http.traceFilter.isEnabled
+#service.psReng.http.traceFilter.maxBodyLength
+#service.psReng.http.traceFilter.textContentTypes
+#service.psReng.http.traceFilter.printInHex
+#service.psReng.http.crossOriginFilter.isEnabled
+#service.psReng.http.crossOriginFilter.allowedOrigins
+#service.psReng.http.crossOriginFilter.allowedMethods
+#service.psReng.http.crossOriginFilter.allowedHeaders
+#service.psReng.http.crossOriginFilter.preflightMaxAge
+#service.psReng.http.crossOriginFilter.allowCredentials
+#service.psReng.http.crossOriginFilter.exposedHeaders
+#service.psReng.http.crossOriginFilter.chainPreflight
+
+# Execute statistics auditor every configured time  
+# CRON expression (http://en.wikipedia.org/wiki/CRON_expression)
+# every 60 seconds 
+ch.ps.psReng.statisticsauditor.jobSchedule=0 0 0/1 * * ?
+
+################# PS monitoring ####################
+ch.ps.psReng.monitoring=true
+service.mxagentRegistry.innerPort=4202
+ch.ps.psReng.monitoring.instance=1

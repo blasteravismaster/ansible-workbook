@@ -1,0 +1,412 @@
+<configuration>
+	<languages>
+		<lang code="en">eng</lang>
+		<lang code="fr">fre</lang>
+		<lang code="nl">dut</lang>
+		<lang code="it">ita</lang>
+		<lang code="no">nor</lang>
+		<lang code="sv">swe</lang>
+		<lang code="hu">hun</lang>
+		<lang code="pl">pol</lang>
+		<lang code="cs">cze</lang>
+		<lang code="sk">slo</lang>
+		<lang code="ro">rum</lang>
+		<lang code="de">ger</lang>
+        <lang code="tr">tur</lang>
+        <lang code="es">spa</lang>
+        <lang code="hr">hrv</lang>
+        <lang code="sl">slv</lang>
+	</languages>
+	<contentLanguages>
+		<lang>eng</lang>
+		<lang>fre</lang>
+		<lang>dut</lang>
+		<lang>ita</lang>
+		<lang>tur</lang>
+	</contentLanguages>
+	<staticreferences>
+		<catalogue>NDSCatalogue</catalogue>
+	</staticreferences>
+	<termTypes>
+		<term type="urn:nnds:metro:metadata:CategoryTypeCS:2010:undefined">0</term>
+		<term type="urn:nnds:metro:metadata:CategoryTypeCS:2010:label">6</term>
+		<term type="urn:nnds:metro:metadata:CategoryTypeCS:2010:ec">10</term>
+		<term type="urn:nnds:metro:metadata:CategoryTypeCS:2010:genre">1</term>
+		<term type="urn:nnds:metro:metadata:CategoryTypeCS:2010:recommendations">20</term>
+		<term type="urn:nnds:metro:metadata:CategoryTypeCS:2010:askparent">14</term>
+		<term type="urn:nnds:metro:metadata:CategoryTypeCS:2010:barker">21</term>
+		<!--Added the below term type for TVA to mercury mapping for storehighlights classification type-->
+		<term type="urn:nnds:metro:metadata:CategoryTypeCS:2010:storeHighlights">39</term>
+	</termTypes>
+	<!--Added the below term type for TVA to mercury mapping for contentType and collectionLayout classification property-->
+	<contentTypeToTermTypeMapping>
+		<termType contentType="Editorial">10</termType>
+		<termType contentType="WatchAgain">1</termType>
+		<termType contentType="PurchasedItems">1</termType>
+		<termType contentType="Suggested">20</termType>
+		<termType contentType="SuggestedFrom">20</termType>
+		<termType contentType="RelatedToTitle">20</termType>
+		<termType contentType="RelatedToTitleFrom">20</termType>
+		<termType contentType="RelatedToTitleForGenre">20</termType>
+		<termType contentType="SuggestedForGenre">20</termType>
+		<termType contentType="SuggestedForGenreFrom">20</termType>
+	</contentTypeToTermTypeMapping>
+	<collectionLayout>
+	<collection layoutType="BasicCollection">collection</collection>
+	<collection layoutType="GridCollection">collection</collection>
+	</collectionLayout>
+	<audioTypes>
+		<type value="urn:tva:metadata:cs:AudioPurposeCS:2007:1">urn:nnds:mercury:metadata:audioType/AudioDescription/VisuallyImpaired</type>
+		<type value="urn:tva:metadata:cs:AudioPurposeCS:2007:2">urn:nnds:mercury:metadata:audioType/AudioDescription/HardOfHearing</type>
+		<type value="urn:tva:metadata:cs:AudioPurposeCS:2007:3">urn:nnds:mercury:metadata:audioType/SupplementalCommentary</type>
+		<type value="urn:tva:metadata:cs:AudioPurposeCS:2007:4">urn:nnds:mercury:metadata:audioType/DirectorsCommentary</type>
+		<type value="urn:tva:metadata:cs:AudioPurposeCS:2007:5">urn:nnds:mercury:metadata:audioType/EducationNotes</type>
+		<type value="urn:tva:metadata:cs:AudioPurposeCS:2007:6">urn:nnds:mercury:metadata:audioType/MainProgrammeAudio</type>
+		<type value="urn:tva:metadata:cs:AudioPurposeCS:2007:7">urn:nnds:mercury:metadata:audioType/AudioDescription/CleanFeed</type>
+	</audioTypes>
+	<soundTypes>
+		<type value="urn:tva:metadata:cs:UPCAudioPresentationCS:2010:2">SOUND_TYPE_MONO</type>
+		<type value="urn:tva:metadata:cs:UPCAudioPresentationCS:2010:3">SOUND_TYPE_STEREO</type>
+		<type value="urn:tva:metadata:cs:UPCAudioPresentationCS:2010:4">SOUND_TYPE_SURROUND</type>
+		<type value="urn:tva:metadata:cs:UPCAudioPresentationCS:2010:5">SOUND_TYPE_MOVIE_THEATRE</type>
+		<type value="urn:tva:metadata:cs:UPCAudioPresentationCS:2010:6">SOUND_TYPE_MOVIE_THEATRE</type>
+		<type value="urn:tva:metadata:cs:UPCAudioPresentationCS:2010:10">SOUND_TYPE_SURROUND</type>
+		<type value="urn:tva:metadata:cs:UPCAudioPresentationCS:2010:11">SOUND_TYPE_DOLBY_PRO_LOGIC</type>
+		<type value="urn:tva:metadata:cs:UPCAudioPresentationCS:2010:12">SOUND_TYPE_SURROUND</type>
+	</soundTypes>
+	<currencies>
+		<currency code="eur">1</currency>
+	</currencies>
+	<CountryCodes>
+		<country code="AF">AFGHANISTAN</country>
+		<country code="AX">ÅLAND ISLANDS</country>
+		<country code="AL">ALBANIA</country>
+		<country code="DZ">ALGERIA</country>
+		<country code="AS">AMERICAN SAMOA</country>
+		<country code="AD">ANDORRA</country>
+		<country code="AO">ANGOLA</country>
+		<country code="AI">ANGUILLA</country>
+		<country code="AQ">ANTARCTICA</country>
+		<country code="AG">ANTIGUA AND BARBUDA</country>
+		<country code="AR">ARGENTINA</country>
+		<country code="AM">ARMENIA</country>
+		<country code="AW">ARUBA</country>
+		<country code="AU">AUSTRALIA</country>
+		<country code="AT">AUSTRIA</country>
+		<country code="AZ">AZERBAIJAN</country>
+		<country code="BS">BAHAMAS</country>
+		<country code="BH">BAHRAIN</country>
+		<country code="BD">BANGLADESH</country>
+		<country code="BB">BARBADOS</country>
+		<country code="BY">BELARUS</country>
+		<country code="BE">BELGIUM</country>
+		<country code="BZ">BELIZE</country>
+		<country code="BJ">BENIN</country>
+		<country code="BM">BERMUDA</country>
+		<country code="BT">BHUTAN</country>
+		<country code="BO">BOLIVIA, PLURINATIONAL STATE OF</country>
+		<country code="BQ">BONAIRE, SAINT EUSTATIUS AND SABA</country>
+		<country code="BA">BOSNIA AND HERZEGOVINA</country>
+		<country code="BW">BOTSWANA</country>
+		<country code="BV">BOUVET ISLAND</country>
+		<country code="BR">BRAZIL</country>
+		<country code="IO">BRITISH INDIAN OCEAN TERRITORY</country>
+		<country code="BN">BRUNEI DARUSSALAM</country>
+		<country code="BG">BULGARIA</country>
+		<country code="BF">BURKINA FASO</country>
+		<country code="BI">BURUNDI</country>
+		<country code="KH">CAMBODIA</country>
+		<country code="CM">CAMEROON</country>
+		<country code="CA">CANADA</country>
+		<country code="CV">CAPE VERDE</country>
+		<country code="KY">CAYMAN ISLANDS</country>
+		<country code="CF">CENTRAL AFRICAN REPUBLIC</country>
+		<country code="TD">CHAD</country>
+		<country code="CL">CHILE</country>
+		<country code="CN">CHINA</country>
+		<country code="CX">CHRISTMAS ISLAND</country>
+		<country code="CC">COCOS (KEELING) ISLANDS</country>
+		<country code="CO">COLOMBIA</country>
+		<country code="KM">COMOROS</country>
+		<country code="CG">CONGO</country>
+		<country code="CD">CONGO, THE DEMOCRATIC REPUBLIC OF THE</country>
+		<country code="CK">COOK ISLANDS</country>
+		<country code="CR">COSTA RICA</country>
+		<country code="C">CÔTE D'IVOIRE</country>I
+  
+      <country code="HR">CROATIA</country>
+		<country code="CW">CURAÇAO</country>
+		<country code="CU">CUBA</country>
+		<country code="CY">CYPRUS</country>
+		<country code="CZ">CZECH REPUBLIC</country>
+		<country code="DK">DENMARK</country>
+		<country code="DJ">DJIBOUTI</country>
+		<country code="DM">DOMINICA</country>
+		<country code="DO">DOMINICAN REPUBLIC</country>
+		<country code="EC">ECUADOR</country>
+		<country code="EG">EGYPT</country>
+		<country code="SV">EL SALVADOR</country>
+		<country code="GQ">EQUATORIAL GUINEA</country>
+		<country code="ER">ERITREA</country>
+		<country code="EE">ESTONIA</country>
+		<country code="ET">ETHIOPIA</country>
+		<country code="FK">FALKLAND ISLANDS (MALVINAS)</country>
+		<country code="FO">FAROE ISLANDS</country>
+		<country code="FJ">FIJI</country>
+		<country code="FI">FINLAND</country>
+		<country code="FR">FRANCE</country>
+		<country code="GF">FRENCH GUIANA</country>
+		<country code="PF">FRENCH POLYNESIA</country>
+		<country code="TF">FRENCH SOUTHERN TERRITORIES</country>
+		<country code="GA">GABON</country>
+		<country code="GM">GAMBIA</country>
+		<country code="GE">GEORGIA</country>
+		<country code="DE">GERMANY</country>
+		<country code="GH">GHANA</country>
+		<country code="GI">GIBRALTAR</country>
+		<country code="GR">GREECE</country>
+		<country code="GL">GREENLAND</country>
+		<country code="GD">GRENADA</country>
+		<country code="GP">GUADELOUPE</country>
+		<country code="GU">GUAM</country>
+		<country code="GT">GUATEMALA</country>
+		<country code="GG">GUERNSEY</country>
+		<country code="GN">GUINEA</country>
+		<country code="GW">GUINEA-BISSAU</country>
+		<country code="GY">GUYANA</country>
+		<country code="HT">HAITI</country>
+		<country code="HM">HEARD ISLAND AND MCDONALD ISLANDS</country>
+		<country code="VA">HOLY SEE (VATICAN CITY STATE)</country>
+		<country code="HN">HONDURAS</country>
+		<country code="HK">HONG KONG</country>
+		<country code="HU">HUNGARY</country>
+		<country code="IS">ICELAND</country>
+		<country code="IN">INDIA</country>
+		<country code="ID">INDONESIA</country>
+		<country code="IR">IRAN, ISLAMIC REPUBLIC OF</country>
+		<country code="IQ">IRAQ</country>
+		<country code="IE">IRELAND</country>
+		<country code="IM">ISLE OF MAN</country>
+		<country code="IL">ISRAEL</country>
+		<country code="IT">ITALY</country>
+		<country code="JM">JAMAICA</country>
+		<country code="JP">JAPAN</country>
+		<country code="JE">JERSEY</country>
+		<country code="JO">JORDAN</country>
+		<country code="KZ">KAZAKHSTAN</country>
+		<country code="KE">KENYA</country>
+		<country code="KI">KIRIBATI</country>
+		<country code="KP">KOREA, DEMOCRATIC PEOPLE'S REPUBLIC OF</country>
+		<country code="KR">KOREA, REPUBLIC OF</country>
+		<country code="KW">KUWAIT</country>
+		<country code="KG">KYRGYZSTAN</country>
+		<country code="LA">LAO PEOPLE'S DEMOCRATIC REPUBLIC</country>
+		<country code="LV">LATVIA</country>
+		<country code="LB">LEBANON</country>
+		<country code="LS">LESOTHO</country>
+		<country code="LR">LIBERIA</country>
+		<country code="LY">LIBYAN ARAB JAMAHIRIYA</country>
+		<country code="LI">LIECHTENSTEIN</country>
+		<country code="LT">LITHUANIA</country>
+		<country code="LU">LUXEMBOURG</country>
+		<country code="MO">MACAO</country>
+		<country code="MK">MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF</country>
+		<country code="MG">MADAGASCAR</country>
+		<country code="MW">MALAWI</country>
+		<country code="MY">MALAYSIA</country>
+		<country code="MV">MALDIVES</country>
+		<country code="ML">MALI</country>
+		<country code="MT">MALTA</country>
+		<country code="MH">MARSHALL ISLANDS</country>
+		<country code="MQ">MARTINIQUE</country>
+		<country code="MR">MAURITANIA</country>
+		<country code="MU">MAURITIUS</country>
+		<country code="YT">MAYOTTE</country>
+		<country code="MX">MEXICO</country>
+		<country code="FM">MICRONESIA, FEDERATED STATES OF</country>
+		<country code="MD">MOLDOVA, REPUBLIC OF</country>
+		<country code="MC">MONACO</country>
+		<country code="MN">MONGOLIA</country>
+		<country code="ME">MONTENEGRO</country>
+		<country code="MS">MONTSERRAT</country>
+		<country code="MA">MOROCCO</country>
+		<country code="MZ">MOZAMBIQUE</country>
+		<country code="MM">MYANMAR</country>
+		<country code="NA">NAMIBIA</country>
+		<country code="NR">NAURU</country>
+		<country code="NP">NEPAL</country>
+		<country code="NL">NETHERLANDS</country>
+		<country code="NC">NEW CALEDONIA</country>
+		<country code="NZ">NEW ZEALAND</country>
+		<country code="NI">NICARAGUA</country>
+		<country code="NE">NIGER</country>
+		<country code="NG">NIGERIA</country>
+		<country code="NU">NIUE</country>
+		<country code="NF">NORFOLK ISLAND</country>
+		<country code="MP">NORTHERN MARIANA ISLANDS</country>
+		<country code="NO">NORWAY</country>
+		<country code="OM">OMAN</country>
+		<country code="PK">PAKISTAN</country>
+		<country code="PW">PALAU</country>
+		<country code="PS">PALESTINIAN TERRITORY, OCCUPIED</country>
+		<country code="PA">PANAMA</country>
+		<country code="PG">PAPUA NEW GUINEA</country>
+		<country code="PY">PARAGUAY</country>
+		<country code="PE">PERU</country>
+		<country code="PH">PHILIPPINES</country>
+		<country code="PN">PITCAIRN</country>
+		<country code="PL">POLAND</country>
+		<country code="PT">PORTUGA</country>
+		<country code="PR">PUERTO RICO</country>
+		<country code="QA">QATAR</country>
+		<country code="RE">REUNION</country>
+		<country code="RO">ROMANIA</country>
+		<country code="RU">RUSSIAN FEDERATION</country>
+		<country code="RW">RWANDA</country>
+		<country code="BL">SAINT BARTHÉLEMY</country>
+		<country code="SH">SAINT HELENA, ASCENSION AND TRISTAN DA CUNHA</country>
+		<country code="KN">SAINT KITTS AND NEVIS</country>
+		<country code="LC">SAINT LUCIA</country>
+		<country code="MF">SAINT MARTIN (FRENCH PART)</country>
+		<country code="PM">SAINT PIERRE AND MIQUELON</country>
+		<country code="VC">SAINT VINCENT AND THE GRENADINES</country>
+		<country code="WS">SAMOA</country>
+		<country code="SM">SAN MARINO</country>
+		<country code="ST">SAO TOME AND PRINCIPE</country>
+		<country code="SA">SAUDI ARABIA</country>
+		<country code="SN">SENEGAL</country>
+		<country code="RS">SERBIA</country>
+		<country code="SC">SEYCHELLES</country>
+		<country code="SL">SIERRA LEONE</country>
+		<country code="SG">SINGAPORE</country>
+		<country code="SX">SINT MAARTEN (DUTCH PART)</country>
+		<country code="SK">SLOVAKIA</country>
+		<country code="SI">SLOVENIA</country>
+		<country code="SB">SOLOMON ISLANDS</country>
+		<country code="SO">SOMALIA</country>
+		<country code="ZA">SOUTH AFRICA</country>
+		<country code="GS">SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS</country>
+		<country code="ES">SPAIN</country>
+		<country code="LK">SRI LANKA</country>
+		<country code="SD">SUDAN</country>
+		<country code="SR">SURINAME</country>
+		<country code="SJ">SVALBARD AND JAN MAYEN</country>
+		<country code="SZ">SWAZILAND</country>
+		<country code="SE">SWEDEN</country>
+		<country code="CH">SWITZERLAND</country>
+		<country code="SY">SYRIAN ARAB REPUBLIC</country>
+		<country code="TW">TAIWAN, PROVINCE OF CHINA</country>
+		<country code="TJ">TAJIKISTAN</country>
+		<country code="TZ">TANZANIA, UNITED REPUBLIC OF</country>
+		<country code="TH">THAILAND</country>
+		<country code="TL">TIMOR-LESTE</country>
+		<country code="TG">TOGO</country>
+		<country code="TK">TOKELAU</country>
+		<country code="TO">TONGA</country>
+		<country code="TT">TRINIDAD AND TOBAGO</country>
+		<country code="TN">TUNISIA</country>
+		<country code="TR">TURKEY</country>
+		<country code="TM">TURKMENISTAN</country>
+		<country code="TC">TURKS AND CAICOS ISLANDS</country>
+		<country code="TV">TUVALU</country>
+		<country code="UG">UGANDA</country>
+		<country code="UA">UKRAINE</country>
+		<country code="AE">UNITED ARAB EMIRATES</country>
+		<country code="GB">UNITED KINGDOM</country>
+		<country code="US">UNITED STATES</country>
+		<country code="UM">UNITED STATES MINOR OUTLYING ISLANDS</country>
+		<country code="UY">URUGUAY</country>
+		<country code="UZ">UZBEKISTAN</country>
+		<country code="VU">VANUATU</country>
+		<country code="VE">VENEZUELA, BOLIVARIAN REPUBLIC O</country>
+		<country code="VN">VIET NAM</country>
+		<country code="VG">VIRGIN ISLANDS, BRITISH</country>
+		<country code="VI">VIRGIN ISLANDS, U.S.</country>
+		<country code="WF">WALLIS AND FUTUNA</country>
+		<country code="EH">WESTERN SAHARA</country>
+		<country code="YE">YEMEN</country>
+		<country code="ZM">ZAMBIA</country>
+		<country code="ZW">ZIMBABWE</country>
+	</CountryCodes>
+	
+	<groupTypes>
+		<groupType type="series" >
+			<sortTypes>
+				<sortType type="alpha">urn:nnds:metro:metadata:SortTypeCS:2015:alpha</sortType>
+				<sortType type="seq">urn:nnds:metro:metadata:SortTypeCS:2015:groupOrder</sortType>
+				<sortType type="broadcastDateTime">urn:nnds:metro:metadata:SortTypeCS:2015:broadcastDateTime</sortType>
+				<sortType isDefault="true" isSortTypeOnNoMatch="true" type="episodeNumber">urn:nnds:metro:metadata:SortTypeCS:2015:episodeNumber</sortType>
+			</sortTypes>
+		</groupType>
+		<groupType type="show">
+			<sortTypes>
+				<sortType type="alpha">urn:nnds:metro:metadata:SortTypeCS:2015:alpha</sortType>
+				<sortType type="seq">urn:nnds:metro:metadata:SortTypeCS:2015:groupOrder</sortType>
+				<sortType type="broadcastDateTime">urn:nnds:metro:metadata:SortTypeCS:2015:broadcastDateTime</sortType>
+				<sortType type="episodeNumber">urn:nnds:metro:metadata:SortTypeCS:2015:episodeNumber</sortType>
+				<sortType isDefault="true" isSortTypeOnNoMatch="true" type="seasonNumber">urn:nnds:metro:metadata:SortTypeCS:2015:seasonNumber</sortType>
+			</sortTypes>
+		</groupType>
+		<groupType type="urn:nnds:metro:metadata:GroupTypeCS:2010:series" >
+			<sortTypes>
+				<sortType isDefault="true" type="alpha">urn:nnds:metro:metadata:SortTypeCS:2015:alpha</sortType>
+				<sortType type="seq">urn:nnds:metro:metadata:SortTypeCS:2015:groupOrder</sortType>
+				<sortType type="broadcastDateTime">urn:nnds:metro:metadata:SortTypeCS:2015:broadcastDateTime</sortType>
+				<sortType isSortTypeOnNoMatch="true" type="episodeNumber">urn:nnds:metro:metadata:SortTypeCS:2015:episodeNumber</sortType>
+			</sortTypes>
+		</groupType>
+		<groupType type="urn:nnds:metro:metadata:GroupTypeCS:2010:show">
+			<sortTypes>
+				<sortType isDefault="true" type="alpha">urn:nnds:metro:metadata:SortTypeCS:2015:alpha</sortType>
+				<sortType isSortTypeOnNoMatch="true"  type="seq">urn:nnds:metro:metadata:SortTypeCS:2015:groupOrder</sortType>
+				<sortType type="broadcastDateTime">urn:nnds:metro:metadata:SortTypeCS:2015:broadcastDateTime</sortType>
+				<sortType type="episodeNumber">urn:nnds:metro:metadata:SortTypeCS:2015:episodeNumber</sortType>
+			</sortTypes>
+		</groupType>			
+		<groupType type="urn:nnds:metro:metadata:GroupTypeCS:2010:presentation" >
+			<sortTypes>
+				<sortType type="alpha" >urn:nnds:metro:metadata:SortTypeCS:2015:alpha</sortType>
+				<sortType isDefault="true" isSortTypeOnNoMatch="true" type="seq">urn:nnds:metro:metadata:SortTypeCS:2015:groupOrder</sortType>
+				<sortType type="broadcastDateTime">urn:nnds:metro:metadata:SortTypeCS:2015:broadcastDateTime</sortType>
+				<sortType type="episodeNumber">urn:nnds:metro:metadata:SortTypeCS:2015:episodeNumber</sortType>
+			</sortTypes>
+		</groupType>
+</groupTypes>
+	<VodBarkerOtherIdentifier>
+		<otheridentifier code="ADI_ID">urn:nnds:mercury:metadata:otheridentifiertype:adi</otheridentifier>
+		<otheridentifier code="LOCATE_ID">urn:nnds:mercury:metadata:otheridentifiertype:locateid</otheridentifier>
+	</VodBarkerOtherIdentifier>
+	<extraDays-FragmnetExp-SelectableContent>28</extraDays-FragmnetExp-SelectableContent>
+	<adultGenre>
+		<excludeGenre>false</excludeGenre>
+		<defaultAdultGenre>urn:tva:metadata:cs:ContentCS:2010:3.9</defaultAdultGenre>
+		<otherGenres>
+			<genre>urn:tva:metadata:cs:UPCEventGenreCS:2009:0F</genre>
+			<genre>urn:tva:metadata:cs:UPCEventGenreCS:2009:F0</genre>
+			<genre>urn:tva:metadata:cs:UPCEventGenreCS:2009:F1</genre>
+			<genre>urn:tva:metadata:cs:UPCEventGenreCS:2009:F2</genre>
+			<genre>urn:tva:metadata:cs:UPCEventGenreCS:2009:F3</genre>
+			<genre>urn:tva:metadata:cs:UPCEventGenreCS:2009:F4</genre>
+			<genre>urn:tva:metadata:cs:UPCEventGenreCS:2009:F5</genre>
+			<genre>urn:tva:metadata:cs:UPCEventGenreCS:2009:F6</genre>
+			<genre>urn:tva:metadata:cs:UPCEventGenreCS:2009:F7</genre>
+			<genre>urn:tva:metadata:cs:UPCEventGenreCS:2009:F8</genre>
+			<genre>urn:tva:metadata:cs:UPCEventGenreCS:2009:F9</genre>
+			<genre>urn:tva:metadata:cs:UPCEventGenreCS:2009:FA</genre>
+			<genre>urn:tva:metadata:cs:UPCEventGenreCS:2009:FB</genre>
+			<genre>urn:tva:metadata:cs:UPCEventGenreCS:2009:FC</genre>
+			<genre>urn:tva:metadata:cs:UPCEventGenreCS:2009:FD</genre>
+			<genre>urn:tva:metadata:cs:UPCEventGenreCS:2009:FE</genre>
+			<genre>urn:tva:metadata:cs:UPCEventGenreCS:2009:FF</genre>
+			<genre>urn:tva:metadata:cs:UPCEventGenreCS:2009:18</genre>
+		</otherGenres>
+	</adultGenre>
+	<defaultBroadcastServiceReference>2442</defaultBroadcastServiceReference>
+	<!--Added the below media type for TVA to mercury mapping-->
+	<mediaTypes>
+		<media type="urn:schange:metadata:cs:DynamicHowRelatedCS:2012:Node">urn:nnds:metro:metadata:HowRelatedCS:2010:thumbnail</media>
+	</mediaTypes>
+	<!--Added the below value for soft link relatedMaterial TVA to mercury mapping-->
+	<softLinkToCategoryQualifier>urn:schange:metadata:cs:SoftLinkQualifierCS:2013:HZN34</softLinkToCategoryQualifier>
+	 
+</configuration>

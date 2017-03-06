@@ -1,0 +1,81 @@
+#########################################
+# TwoWayCat Searcher Configuration File #
+#########################################
+
+#######################
+# Indexing parameters #
+#######################
+
+# The root directory where the TWC searcher keeps its internal store.
+# The store holds Lucene indexes, and a cache of the AggregatedDocuments
+# created by the ingester.
+
+# If this directory is removed the TWC will recreate the directory and rebuild
+# its internal store by requesting data from the Data Masters again.
+
+# The performance of the underlying disk will have an impact on the performance
+# of TWC, since the TWC pages data from the store into memory during its operation
+# Therefore, this location should be a local disk or very fast networked
+# disk. This data must NOT be shared between redundant instances.
+
+twc.search.indexDir=/opt/nds/data/tgs
+
+# The languages that the the TWC will index.
+# Changes to this list will require the files in twc.indexDir to be removed and
+# the TWC restarted.
+# The TWC will not check that these values are valid language codes or even that
+# these are 3 characters long. Whitespace will be trimmed from the start and end.
+twc.search.langs=ger, dut, fre, rum, slk, cze, spa, ita, hun, pol, hrv, slv, tur, eng
+
+######################
+# Searcher Threading #
+######################
+
+# Number of threads used to add incoming search requests to the message queue
+twc.main.searchQueueExecutorThreads=16
+
+# How long a message may wait to be processed before being judged as stale (milliseconds)
+twc.main.responseTimeout=5000
+#twc.main.responseTimeout=10000
+
+# The interval for refreshing the read cache from write cache
+twc.search.refreshInterval=300
+#twc.search.refreshInterval=900
+
+# Size of the blocking queue search requests will be added to
+twc.main.searchQueueSize=1024
+
+# Max number of concurrent searchers; defaults to zero, which will use availableProcessors * 2
+twc.main.searchThreadPoolSize=16
+
+####################
+# Monitoring Agent #
+####################
+
+# The name of the TWC instance that is reported to the monitoring agent
+monitoring.instanceName=TGSInstance6
+
+# Port number of the monitoring RMI registry.
+service.mxagentRegistry.port=3001
+
+# Port number on which the TWC agent is exported.
+service.mxagentRegistry.innerPort=3381
+
+##################
+# Cache Settings #
+##################
+
+# Number of AggregatedDocuments to cache in memory
+# 0 = unlimited
+twc.searchCache.adMaxElementsInMemory=4096
+
+# Number of queued updates to cache in memory
+# 0 = unlimited
+twc.searchCache.upMaxElementsInMemory=3
+
+# The Content search bit set cache regeneration cycle sleep time (in seconds)
+twc.searcher.searchCache.regen.sleepTime=10
+#twc.searcher.searchCache.regen.sleepTime=60
+
+# The Content suggestion bit set cache regeneration cycle sleep time (in seconds)
+twc.searcher.suggestionCache.regen.sleepTime=60

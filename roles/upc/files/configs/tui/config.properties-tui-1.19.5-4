@@ -1,0 +1,102 @@
+#########################################
+# TwoWayCat Ingester Configuration File #
+#########################################
+
+#######################
+# Indexing parameters #
+#######################
+
+# The root directory where the TWC ingester keeps its internal store.
+# The ingest store will hold data returned by the Data Masters and any updates
+# which are waiting to be sent to a searcher.
+
+# If this directory is removed the TWC will recreate the directory and rebuild
+# its internal store by requesting data from the Data Masters again.
+
+# The performance of the underlying disk will have an impact on the performance
+# of TWC, since the TWC pages data from the store into memory during its operation
+# Therefore, this location should be a local disk or very fast networked
+# disk. This data must NOT be shared between redundant instances.
+
+twc.ingest.indexDir=/opt/nds/tui/data
+
+##############
+# Scheduling #
+##############
+
+# The amount of data (in milliseconds) the TWC will hold in its internal store.
+# 1296000000 = 15 days
+twc.dmif.windowSize = 1296000000
+
+# The amount of new data (in milliseconds) the TWC will request from the Data
+# Masters each time the window advances.
+# 86400000 = 1 day
+twc.dmif.windowAdvanceSize = 86400000
+
+#The time of day in which the window will roll
+twc.dmif.windowRollTime=09:00
+
+###########################
+# Data Master Connections #
+###########################
+
+#Megha DM LUS Host:Port and GroupName
+
+twc.xap.catalogStoreHostAndPort=10.201.96.46:4174
+twc.xap.catalogStoreGroup=UPCindia-Megha
+
+# Hostname of the CCM data master. Primary and backup.
+CcmNotificationRMI.1.host=10.201.96.45
+#CcmNotificationRMI.2.host=vgc1b
+
+# Hostname of the NM data master. Primary and backup.
+NmNotificationRMI.1.host=10.201.96.45
+#NmNotificationRMI.2.host=vgc1b
+
+# Hostname of the LSM data master. Primary and backup.
+LsmNotificationRMI.1.host=10.201.96.45
+#LsmNotificationRMI.2.host=vgc1b
+
+# Hostname of the OASM data master. Primary and backup.
+OasmNotificationRMI.1.host=10.201.96.45
+#OasmNotificationRMI.2.host=vgc1b
+
+# Hostname of the IdSync
+IDSync.1.host=10.201.96.30
+#IDSync.2.host=vgc1b
+
+####################
+# Monitoring Agent #
+####################
+
+# The name of the TWC instance that is reported to the monitoring agent
+monitoring.instanceName=TUIInstance1
+
+# Port number of the monitoring RMI registry.
+service.mxagentRegistry.port=3000
+
+# Port number on which the TWC agent is exported.
+service.mxagentRegistry.innerPort=3380
+
+##################
+# Cache Settings #
+##################
+
+# Number of FragmentBases to cache in memory
+# 0 = unlimited
+twc.ingestCache.fbMaxElementsInMemory=10240
+
+# Number of queued updates to cache in memory if no searcher can be reached
+# 0 = unlimited
+twc.ingestCache.upMaxElementsInMemory=3
+
+# Expiration scheduling
+twc.ingestCache.expirySchedule = 12:00
+
+# Number of hours before an element is expired, once it's expiration date has passed
+twc.ingestCache.expirationDelayHours = 3
+
+
+
+
+

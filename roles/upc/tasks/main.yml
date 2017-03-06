@@ -1,7 +1,7 @@
 ---
  - name: Copy the rpm file "{{ nameoftherpm }}" to the destination server
    copy:
-    src: /opt/ansible-workbook/roles/upc/files/cmdc/{{ nameoftherpm }}.rpm
+    src: /opt/ansible-workbook/roles/upc/files/cofnigs/cmdc/{{ nameoftherpm }}.rpm
     dest: /opt/nds/rpms/
  
  - name: Install the copied rpm {{ nameoftherpm }}
@@ -11,8 +11,8 @@
  
  - name: Transfer the config file to the remote location
    file:
-    src: cmdc/config.properties
-    dest: /opt/nds/installed/{{ nameofinstalleddir }}/etc/
+    src: configs/cmdc/"config.properties-{{ nameofinstalleddir }}"
+    dest: /opt/nds/installed/{{ nameofinstalleddir }}/etc/config.properties
     owner: "{{ ndsusername }}"
     group: "{{ ndsgroupname }}"
     mode: 0655

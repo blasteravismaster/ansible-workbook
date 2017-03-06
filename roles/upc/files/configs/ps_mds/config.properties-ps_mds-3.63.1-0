@@ -1,0 +1,38 @@
+service.psMds.http.host=10.201.96.30
+# http server port. Default value is: 8080.
+service.psMds.http.port=1793
+# minimal number of http server worker threads. Default value is: 100.
+service.psMds.http.minThreads=10
+#maximum number of http server worker threads. Default value is: 1000.
+service.psMds.http.maxThreads=500
+# idle time after which the connection will be closed. Default value is: 180000.
+service.psMds.http.connectionIdleTime=5000
+
+#service.psMds.http.availabilityFilter.isEnabled
+#service.psMds.http.flowContextFilter.isEnabled
+#service.psMds.http.pingFilter.isEnabled
+service.psMds.http.monitoringFilter.isEnabled = false
+#service.psMds.http.requestValidityFilter.isEnabled
+#service.psMds.http.requestValidityFilter.maxContentLength
+#service.psMds.http.traceFilter.isEnabled
+#service.psMds.http.traceFilter.maxBodyLength
+#service.psMds.http.traceFilter.textContentTypes
+#service.psMds.http.traceFilter.printInHex
+#service.psMds.http.crossOriginFilter.isEnabled
+#service.psMds.http.crossOriginFilter.allowedOrigins
+#service.psMds.http.crossOriginFilter.allowedMethods
+#service.psMds.http.crossOriginFilter.allowedHeaders
+#service.psMds.http.crossOriginFilter.preflightMaxAge
+#service.psMds.http.crossOriginFilter.allowCredentials
+#service.psMds.http.crossOriginFilter.exposedHeaders
+#service.psMds.http.crossOriginFilter.chainPreflight
+
+# Execute statistics auditor every configured time
+# CRON expression (http://en.wikipedia.org/wiki/CRON_expression)
+# every 60 seconds 
+ch.ps.psMds.statisticsauditor.jobSchedule=0 0 0/1 * * ?
+
+################# PS monitoring ####################
+ch.ps.psMds.monitoring=true
+service.mxagentRegistry.innerPort=4203
+ch.ps.psMds.monitoring.instance=1

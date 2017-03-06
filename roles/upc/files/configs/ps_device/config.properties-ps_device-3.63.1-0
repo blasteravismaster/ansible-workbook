@@ -1,0 +1,77 @@
+service.psDevice.http.host=0.0.0.0
+# http server port. Default value is: 8080.
+service.psDevice.http.port=1796
+# minimal number of http server worker threads. Default value is: 100.
+service.psDevice.http.minThreads=10
+#maximum number of http server worker threads. Default value is: 1000.
+service.psDevice.http.maxThreads=1000
+# idle time after which the connection will be closed. Default value is: 180000.
+service.psDevice.http.connectionIdleTime=5000
+
+#max number of connections to tms
+service.tms.http.maxConnectionsPerAddress=500
+
+#DB connection timeout increased from 0 to 30000
+infra.connectionPool.checkoutTimeout=30000
+#max number of connections to DB
+infra.connectionPool.maxLimit=100
+
+#service.psDevice.http.availabilityFilter.isEnabled
+#service.psDevice.http.flowContextFilter.isEnabled
+#service.psDevice.http.pingFilter.isEnabled
+service.psDevice.http.monitoringFilter.isEnabled = false
+#service.psDevice.http.requestValidityFilter.isEnabled
+#service.psDevice.http.requestValidityFilter.maxContentLength
+#service.psDevice.http.traceFilter.isEnabled
+#service.psDevice.http.traceFilter.maxBodyLength
+#service.psDevice.http.traceFilter.textContentTypes
+#service.psDevice.http.traceFilter.printInHex
+#service.psDevice.http.crossOriginFilter.isEnabled
+#service.psDevice.http.crossOriginFilter.allowedOrigins
+#service.psDevice.http.crossOriginFilter.allowedMethods
+#service.psDevice.http.crossOriginFilter.allowedHeaders
+#service.psDevice.http.crossOriginFilter.preflightMaxAge
+#service.psDevice.http.crossOriginFilter.allowCredentials
+#service.psDevice.http.crossOriginFilter.exposedHeaders
+#service.psDevice.http.crossOriginFilter.chainPreflight
+
+# Execute statistics auditor every configured time  
+# CRON expression (http://en.wikipedia.org/wiki/CRON_expression)
+# every 60 seconds 
+ch.ps.psDevice.statisticsauditor.jobSchedule=0 0 0/1 * * ?
+
+################# PS monitoring ####################
+ch.ps.psDevice.monitoring=true
+service.mxagentRegistry.innerPort=4206
+ch.ps.psDevice.monitoring.instance = 1
+
+# When psDevice receives an HTTP GET request from CPE,
+# psDevice sends an HTTP PUT request to the Vitria component to refresh the specific CPE data.
+service.vitria.1.host=10.201.96.30
+service.vitria.1.port=1800
+service.vitria.userName=User
+service.vitria.password=Pass
+
+ch.ps.psDevice.visualElementHostPort=http://10.201.96.30:1796
+ch.ps.psDevice.widgetLibraryHostPort=http://10.201.96.30:1796
+ch.ps.psDevice.getDeviceHostPort=http://10.201.96.30:1796
+
+# For pairing of guest 2nd screen device, define default household parameters
+ch.ps.psDevice.default.household.locale.countryId=16
+ch.ps.psDevice.default.household.locale.region=1
+ch.ps.psDevice.default.household.locale.city=10
+
+# The max number of IPCs allowed for one household. Default = 256
+#ch.ps.psDevice.maxIpcForHousehold=<decimal value>
+
+########## DVS ############
+#ch.ps.pairing.getLci.isEnabled = false
+# When the DVS client initialization failed, how long to wait until the next attempt. 0 means "no retry"; default = 0
+# Currently, retry is not supported by DVS client, and this mechanism won't work.
+#ch.ps.pairing.getLci.reconnectTimeMillis = 0
+async.tcp.host=172.30.124.105
+async.tcp.port=60004
+dvs.sourceId=1452
+#dvs.sourceId=0430
+async.tcp.connectionTimeoutMillis=30000
+ch.ps.psDevice.chechNdsUserId = false
