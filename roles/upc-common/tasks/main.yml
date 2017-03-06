@@ -9,7 +9,7 @@
      src: files/CentOS-Base5.repo
      dest: /etc/yum.repos.d/
    when:
-     - ansible_distribution == "RedHat"
+     - ansible_distribution == "CentOS"
      - ansible_distribution_major_version == "5"
 
  - name: This is to copy the repo file of Centos 6
