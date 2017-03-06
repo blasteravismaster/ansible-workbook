@@ -1,0 +1,13 @@
+---
+
+nameoftherpm: nds_upc_cmdc-1.19.17-7_el5.noarch
+
+nameofinstalleddir: cmdc-1.19.17-7
+
+ndsusername: ndsuser
+
+ndsgroupname: nds
+
+servicenameofcomponent: nds_cmdc
+
+linknameofservice: cmdc

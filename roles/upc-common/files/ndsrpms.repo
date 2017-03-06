@@ -1,0 +1,5 @@
+[ndsrpms]
+name=ndsrpms
+baseurl=http://10.201.96.30/ndsrpms//
+enabled=1
+gpgcheck=0

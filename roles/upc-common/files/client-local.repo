@@ -1,0 +1,6 @@
+[rhel5.8-64-local]
+name=rhel5.8-64
+baseurl=http://10.201.96.150/RHEL5.8x64/Server
+enabled=1
+gpgcheck=0
+#gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release

@@ -1,0 +1,64 @@
+---
+ - name: This is to dopy the repo of nds repository to the clients
+   file: 
+     path: /etc/yum.repos.d/ndsrpms.repo
+     state: absent
+
+ - name: This is to copy the the repo file of Centos 5
+   copy:
+     src: files/CentOS-Base5.repo
+     dest: /etc/yum.repos.d/
+   when:
+     - ansible_distribution == "RedHat"
+     - ansible_distribution_major_version == "5"
+
+ - name: This is to copy the repo file of Centos 6
+   copy:
+     src: files/CentOS-Base6.repo
+     dest: /etc/yum.repos.d/
+   when:
+     - ansible_distribution == "RedHat"
+     - ansible_distribution_major_version == "6"
+ 
+ - name: This is to copy the resolv.conf file
+   copy:
+     src: files/resolv.conf
+     dest: /etc/
+
+ - name: This is to make sure the basic packages are installed
+   yum:
+    name: "{{ item }}"
+    state: latest
+    update_cache: yes
+   with_items:
+    - nmap
+    - tree
+    - telnet
+    - screen
+        
+ - name: Update to the latest package
+   yum:
+     name: "*"
+     state: latest
+
+ - name: This is to uninstall unwanted packages and services
+   yum:
+     name: "{{ item }}"
+     state: absent
+   with_items:
+      -  bluetooth 
+
+ - name: This is to stop unwanted services
+   service:
+     name: "{{ item }}"
+     state: stopped
+   with_items:
+      - iptables
+      - cups    
+      - sendmail
+
+# - name: This is to delete the last wrongly added repo
+#   file:
+#     path: /etc/yum.repos.d/CentOS-Base5.repo
+#     state: absent
+

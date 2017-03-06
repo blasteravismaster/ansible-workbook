@@ -1,0 +1,13 @@
+---
+- hosts: slaves
+  remote_user: root
+  
+  vars:
+    - fileName: file1
+  tasks:
+    - name: file created at tmp, with varaible as input
+      file: 
+        path: /tmp/{{ fileName }}.txt
+        state: touch
+        mode: 0644
+

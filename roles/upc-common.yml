@@ -1,0 +1,5 @@
+---
+ - hosts: upcg-all
+   roles:
+   - upc-common
+

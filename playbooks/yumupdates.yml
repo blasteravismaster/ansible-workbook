@@ -1,0 +1,16 @@
+---
+- hosts: slaves
+  remote_user: root
+  tasks:
+  - name: This will update openssh and makes the yum cache
+    yum:
+      name: openssh
+      state: latest
+    notify:
+        - name: Restart ssh
+  handlers:
+  - name: Restart ssh
+    service:
+        name: ssh
+        state: restarted
+
