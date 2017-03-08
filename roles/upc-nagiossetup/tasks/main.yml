@@ -112,8 +112,6 @@
    when:
       - nagios_master == "master"
 
-################## Client Side configuration starts from here
-
  - name: Install the client side rpms nrpe
    yum:  
     name: {{ item }}
