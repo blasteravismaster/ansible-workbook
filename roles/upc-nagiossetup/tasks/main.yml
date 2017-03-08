@@ -3,14 +3,14 @@
    yum:
     name: "{{ item }}"
     state: latest
-    with_items:
-      - httpd
-      - php
-      - gcc
-      - glibc
-      - glibc-common
-      - gd
-      - gd-devel
+   with_items:
+     - httpd
+     - php
+     - gcc
+     - glibc
+     - glibc-common
+     - gd
+     - gd-devel
    when:
       - nagios_master == "master"
 
@@ -34,9 +34,9 @@
    yum:
     name: "{{ item }}"
     enablerepo: epel
-    with_items:
-      - nagios
-      - nagios-plugins
+   with_items:
+     - nagios
+     - nagios-plugins
    when:
       - nagios_master == "master"
 
@@ -106,9 +106,9 @@
     name: "{{ item }}"
     enabled: yes
     state: restarted
-    with_items:
-      - nagios
-      - httpd
+   with_items:
+     - nagios
+     - httpd
    when:
       - nagios_master == "master"
 
@@ -116,9 +116,9 @@
    yum:  
     name: "{{ item }}"
     state: latest
-    with_items:
-      - nrpe
-      - nagios-plugins 
+   with_items:
+     - nrpe
+     - nagios-plugins 
 
  - name: Copt the nrpe file to client machine
    template:
