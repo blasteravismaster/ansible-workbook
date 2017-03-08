@@ -1,5 +1,5 @@
 ---
- - hosts: upcg-all
+ - hosts: masters upcg-all
    roles:
    - upc-nagiossetup
 
