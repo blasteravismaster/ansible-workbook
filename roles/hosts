@@ -1,5 +1,5 @@
 [masters]
-127.0.0.1 nagios_master=master
+10.197.24.45 nagios_master=master
 
 [slaves]
 slave1.lab.com
@@ -49,6 +49,7 @@ kdg
 prisa
 upcg
 cos
+masters
 
 [allprojects:vars]
 ansible_user=root
