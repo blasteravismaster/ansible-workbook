@@ -1,5 +1,5 @@
 ---
- - name: This is to dopy the repo of nds repository to the clients
+ - name: This is to copy the repo of nds repository to the clients
    file: 
      path: /etc/yum.repos.d/ndsrpms.repo
      state: absent
@@ -23,7 +23,7 @@
       - epel5.repo
       - CentOS-Base6.repo
    when:
-     - ansible_distribution == "RedHat"
+     - ansible_distribution == "CentOS"
      - ansible_distribution_major_version == "6"
  
  - name: This is to copy the resolv.conf file
