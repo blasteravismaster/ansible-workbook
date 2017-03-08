@@ -17,7 +17,7 @@
 
  - name: This is to copy the EPEL and Centos of V6
    copy:
-     src: files/{{ items }}
+     src: files/{{ item }}
      dest: /etc/yum.repos.d/
    with_items:
       - epel6.repo
