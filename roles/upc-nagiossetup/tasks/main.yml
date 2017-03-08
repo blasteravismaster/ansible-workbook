@@ -1,7 +1,7 @@
 ---
  - name: This module is to install the basic required package in the NAGIOS server
    yum:
-    name: {{ item }}
+    name: "{{ item }}"
     state: latest
     with_items:
       - httpd
@@ -32,7 +32,7 @@
 
  - name: Enabling the EPEL repo and installing the nagios nagios-plugins  package
    yum:
-    name: {{ item }}
+    name: "{{ item }}"
     enablerepo: epel
     with_items:
       - nagios
@@ -103,7 +103,7 @@
     
  - name: Enabling boot time on and restarting the Nagios and Httpd service
    service:
-    name: {{ item }}
+    name: "{{ item }}"
     enabled: yes
     state: restarted
     with_items:
@@ -114,7 +114,7 @@
 
  - name: Install the client side rpms nrpe
    yum:  
-    name: {{ item }}
+    name: "{{ item }}"
     state: latest
     with_items:
       - nrpe
