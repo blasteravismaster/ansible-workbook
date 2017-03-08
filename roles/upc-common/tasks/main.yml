@@ -20,7 +20,7 @@
      src: files/{{ items }}
      dest: /etc/yum.repos.d/
    with_items:
-      - epel5.repo
+      - epel6.repo
       - CentOS-Base6.repo
    when:
      - ansible_distribution == "CentOS"
