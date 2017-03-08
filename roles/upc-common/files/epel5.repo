@@ -1,0 +1,26 @@
+[epel]
+name=Extra Packages for Enterprise Linux 5 - $basearch
+baseurl=http://mirror.upc.com/pub/epel/5/$basearch
+#mirrorlist=https://mirror.upc.com/metalink?repo=epel-5&arch=$basearch
+failovermethod=priority
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-5
+
+[epel-debuginfo]
+name=Extra Packages for Enterprise Linux 5 - $basearch - Debug
+baseurl=http://mirror.upc.com/pub/epel/5/$basearch/debug
+#mirrorlist=https://mirror.upc.com/metalink?repo=epel-debug-5&arch=$basearch
+failovermethod=priority
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-5
+gpgcheck=1
+
+[epel-source]
+name=Extra Packages for Enterprise Linux 5 - $basearch - Source
+baseurl=http://mirror.upc.com/pub/epel/5/SRPMS
+#mirrorlist=https://mirror.upc.com/metalink?repo=epel-source-5&arch=$basearch
+failovermethod=priority
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-5
+gpgcheck=1

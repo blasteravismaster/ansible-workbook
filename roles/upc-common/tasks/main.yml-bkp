@@ -4,24 +4,18 @@
      path: /etc/yum.repos.d/ndsrpms.repo
      state: absent
 
- - name: This is to copy the EPEL and Centos of V5
+ - name: This is to copy the the repo file of Centos 5
    copy:
-     src: files/{{ item }}
+     src: files/CentOS-Base5.repo
      dest: /etc/yum.repos.d/
-   with_items:
-      - epel5.repo
-      - CentOS-Base5.repo
    when:
      - ansible_distribution == "CentOS"
      - ansible_distribution_major_version == "5"
 
- - name: This is to copy the EPEL and Centos of V6
+ - name: This is to copy the repo file of Centos 6
    copy:
-     src: files/{{ items }}
+     src: files/CentOS-Base6.repo
      dest: /etc/yum.repos.d/
-   with_items:
-      - epel5.repo
-      - CentOS-Base6.repo
    when:
      - ansible_distribution == "RedHat"
      - ansible_distribution_major_version == "6"
