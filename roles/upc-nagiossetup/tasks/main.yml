@@ -125,7 +125,7 @@
     src: templates/nrpe.cfg.j2
     dest: /etc/nagios/nrpe.cfg
 
-  -name: Next Enable the service on boot up and restart the service
+ - name: Next Enable the service on boot up and restart the service
    yum:
     name: nrpe
     enabled: yes
