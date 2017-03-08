@@ -116,7 +116,7 @@
    yum:  
     name: {{ item }}
     state: latest
-    with_item:
+    with_items:
       - nrpe
       - nagios-plugins 
 
