@@ -1,0 +1,66 @@
+---
+ - name: This module is to install the basic required package in the NAGIOS server
+   yum:
+    name: {{ item }}
+    state: latest
+    with_items:
+      - httpd
+      - php
+      - gcc
+      - glibc
+      - glibc-common
+      - gd
+      - gd-devel
+
+ - name: Create user nagios and add group nagcmd
+   user:
+    name: nagios
+    comment: "This is  nagios user"
+    group: nagcmd
+    state: present
+
+ - name: Adding user acpache to nagcmd group
+   user:
+    name: apache
+    groups: nagcmd
+
+ - name: Enabling the EPEL repo and installing the nagios nagios-plugins  package
+   yum:
+    name: {{ item }}
+    enablerepo: epel
+    with_items:
+      - nagios
+      - nagios-plugins 
+
+ - name: Next change the admins email address to appropiately in the contacts.cfg
+   template:
+    src: templates/contacts.cfg.j2
+    dest: /etc/nagios/objects/contacts.cfg
+    owner: nagios
+    group: nagcmd
+
+ - name: Copy the nagios.conf to the respective location
+   template:
+    src: templates/nagios.conf.j2
+    dest: /etc/httpd/conf.d/nagios.conf
+    owner: apache
+    group: apache
+
+ - name: Setting password for the user Nagios Admin
+   htpasswd:
+    path: /etc/nagios/passwd
+    name: nagiosadmin
+    password: 'nagiosadmin'
+    owner: root
+    group: apache
+    mode: 0640
+
+ - name: Enabling boot time on and restarting the Nagios and Httpd service
+   service:
+    name: {{ item }}
+    enabled: yes
+    with_items:
+      - nagios
+      - httpd
+
+
