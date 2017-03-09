@@ -12,7 +12,7 @@
      - gd
      - gd-devel
    when:
-      - nagios_master == "master"
+     - nagios_master == "master"
 
  - name: Create user nagios and add group nagcmd
    user:
@@ -21,14 +21,14 @@
     group: nagcmd
     state: present
    when:
-      - nagios_master == "master"
+     - nagios_master == "master"
 
  - name: Adding user acpache to nagcmd group
    user:
     name: apache
     groups: nagcmd
    when:
-      - nagios_master == "master"
+     - nagios_master == "master"
 
  - name: Enabling the EPEL repo and installing the nagios nagios-plugins  package
    yum:
@@ -38,7 +38,7 @@
      - nagios
      - nagios-plugins
    when:
-      - nagios_master == "master"
+     - nagios_master == "master"
 
  - name: Next change the admins email address to appropiately in the contacts.cfg
    template:
@@ -47,7 +47,7 @@
     owner: nagios
     group: nagcmd
    when:
-      - nagios_master == "master"
+     - nagios_master == "master"
 
  - name: Copy the nagios.conf to the respective location
    template:
@@ -56,7 +56,7 @@
     owner: apache
     group: apache
    when:
-      - nagios_master == "master"
+     - nagios_master == "master"
 
  - name: Setting password for the user Nagios Admin
    htpasswd:
@@ -67,7 +67,7 @@
     group: apache
     mode: 0640
    when:
-      - nagios_master == "master"
+     - nagios_master == "master"
 
  - name: Copy the nagios.cfg to the respective location
    template:
@@ -76,7 +76,7 @@
     owner: apache
     group: apache
    when:
-      - nagios_master == "master"
+     - nagios_master == "master"
 
  - name: Copy the commands.cfg(file to create the real command to be executed on server) to the respective location
    template:
@@ -85,7 +85,7 @@
     owner: root
     group: nagcmd
    when:
-      - nagios_master == "master"
+     - nagios_master == "master"
 
  - name: Make sure the directory for placing the servers config mentioned in the nagios.cfg is present
    file: 
@@ -94,7 +94,7 @@
     group: nagcmd
     mode: 0750
    when:
-      - nagios_master == "master"
+     - nagios_master == "master"
 
  - name: Copy the client cfg file which has the parameters of what to be checked
    template:
@@ -110,7 +110,7 @@
      - nagios
      - httpd
    when:
-      - nagios_master == "master"
+     - nagios_master == "master"
 
  - name: Install the client side rpms nrpe
    yum:  
