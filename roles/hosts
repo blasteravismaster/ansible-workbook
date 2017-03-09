@@ -11,7 +11,7 @@ slave2.lab.com
 [upcg]
 10.201.96.30
 
-[upcg-all]
+[upcg-all]  nagios_master=null
 10.201.96.20
 10.201.96.24
 #10.201.96.23
