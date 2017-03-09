@@ -65,6 +65,13 @@
    when:
      - nagios_master == "master"
 
+ - name: This is install the package python-passlib for httpdpaswd to work
+   yum:
+    name: python-passlib
+    state: latest
+   when:
+     - nagios_master == "master"
+
  - name: Setting password for the user Nagios Admin
    htpasswd:
     path: /etc/nagios/passwd
@@ -80,8 +87,8 @@
    template:
     src: templates/nagios.cfg.j2
     dest: /etc/nagios/nagios.cfg
-    owner: apache
-    group: apache
+    owner: nagios
+    group: nagios
    when:
      - nagios_master == "master"
 
