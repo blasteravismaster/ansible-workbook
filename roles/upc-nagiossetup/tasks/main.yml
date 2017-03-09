@@ -116,9 +116,7 @@
 #    dest: /etc/nagios/servers/"{{ ansible_hostname }}".cfg
 
  - name: Rsync the client cfg file which has the parameters of what to be checked
-   synchronize:
-     src: templates/clientname.cfg.j2
-     dest: rsync://"{{ nagiosmaster }}"/etc/nagios/servers/"{{ ansible_hostname }}".cfg
+   shell: "rsync -vza templates/clientname.cfg.j2 {{ nagiosmaster }}:/etc/nagios/servers/{{ ansible_hostname }}.cfg"
 
  - name: Enabling boot time on and restarting the Nagios and Httpd service
    service:
