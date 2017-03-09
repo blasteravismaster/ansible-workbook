@@ -14,6 +14,16 @@
    when:
      - nagios_master == "master"
 
+ - name: Enabling the EPEL repo and installing the nagios nagios-plugins  package
+   yum:
+    name: "{{ item }}"
+    enablerepo: epel
+   with_items:
+     - nagios
+     - nagios-plugins
+   when:
+     - nagios_master == "master"
+
  - name: Create user nagios and add group nagcmd
    user:
     name: nagios
@@ -27,16 +37,6 @@
    user:
     name: apache
     groups: nagcmd
-   when:
-     - nagios_master == "master"
-
- - name: Enabling the EPEL repo and installing the nagios nagios-plugins  package
-   yum:
-    name: "{{ item }}"
-    enablerepo: epel
-   with_items:
-     - nagios
-     - nagios-plugins
    when:
      - nagios_master == "master"
 
