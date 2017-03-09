@@ -14,7 +14,7 @@
    when:
      - nagios_master == "master"
 
- - debug: msg="The value of nagios_master is {{ nagios_master }}"
+# - debug: msg="The value of nagios_master is {{ nagios_master }}"
 
  - name: Installing the nagios nagios-plugins  package
    yum:
@@ -40,7 +40,7 @@
    when:
      - nagios_master == "master"
 
- - name: Adding user acpache to nagcmd group
+ - name: Adding user apache to nagcmd group
    user:
     name: apache
     groups: nagcmd
