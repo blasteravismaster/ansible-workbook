@@ -1,5 +1,5 @@
 [masters]
-10.197.24.45 nagios_master=master
+nagiosmaster ansible_host=10.197.24.45 nagios_master=master
 
 [test]
 10.201.96.22 test_value=maser
@@ -34,7 +34,7 @@ slave2.lab.com
 [upcg-all:vars]
 ansible_user=root
 ansible_ssh_pass=systemxx2
-nagios_master=null
+nagios_master=client
 
 [nagiosgroup:children]
 upcg-all
