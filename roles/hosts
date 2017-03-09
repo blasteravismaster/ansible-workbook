@@ -34,7 +34,7 @@ slave2.lab.com
 [upcg-all:vars]
 ansible_user=root
 ansible_ssh_pass=systemxx2
-nagios_master=master
+nagios_master=null
 
 [nagiosgroup:children]
 upcg-all

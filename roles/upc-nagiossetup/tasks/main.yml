@@ -24,7 +24,7 @@
      - nagios
      - nagios-plugins
    when:
-     - rnagios_master == "master"
+     - nagios_master == "master"
 
  - name: Adding the group nagcmd
    group:
