@@ -14,7 +14,9 @@
    when:
      - nagios_master == "master"
 
- - name: Enabling the EPEL repo and installing the nagios nagios-plugins  package
+ - debug:msg="The value of nagios_master is {{ nagios_master }}"
+
+ - name: Installing the nagios nagios-plugins  package
    yum:
     name: "{{ item }}"
     enablerepo: epel
@@ -22,8 +24,13 @@
      - nagios
      - nagios-plugins
    when:
-     - nagios_master == "master"
+     - rnagios_master == "master"
 
+ - name: Adding the group nagcmd
+   group:
+    name: nagcmd
+    state: present   
+ 
  - name: Create user nagios and add group nagcmd
    user:
     name: nagios
@@ -100,7 +107,7 @@
    template:
     src: templates/clientname.cfg.j2
     dest: /etc/nagios/servers/"{{ ansible_hostname }}".cfg
-    
+
  - name: Enabling boot time on and restarting the Nagios and Httpd service
    service:
     name: "{{ item }}"
