@@ -1,5 +1,5 @@
 [masters]
-10.197.24.45
+10.197.24.45 nagios_master=master
 
 [test]
 10.201.96.22 test_value=maser
@@ -37,7 +37,7 @@ ansible_ssh_pass=systemxx2
 
 [nagiosgroup:children]
 upcg-all
-masters nagios_master=master
+masters 
 
 [kdg]
 10.225.90.1
