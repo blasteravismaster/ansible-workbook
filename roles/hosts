@@ -1,5 +1,5 @@
 [masters]
-nagiosmaster ansible_host=10.197.24.45 nagios_master=master
+nagiosmaster ansible_host=10.197.24.45 nagios_master=master nagiosmaster=10.197.24.45
 
 [test]
 10.201.96.22 test_value=maser
