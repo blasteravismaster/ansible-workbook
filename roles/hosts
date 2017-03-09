@@ -35,7 +35,7 @@ slave2.lab.com
 ansible_user=root
 ansible_ssh_pass=systemxx2
 
-[upcg-all:children]
+[nagiosgroup:children]
 upcg-all
 masters nagios_master=master
 
