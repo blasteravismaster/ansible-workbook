@@ -144,7 +144,7 @@
     state: latest
    with_items:
      - nrpe
-     - nagios-plugins* 
+     - "nagios-plugins*" 
 
  - name: Copy the nrpe file to client machine
    template:
