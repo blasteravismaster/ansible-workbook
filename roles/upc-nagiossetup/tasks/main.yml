@@ -34,7 +34,7 @@
  - name: Create user nagios and add group nagcmd
    user:
     name: nagios
-    comment: "This is  nagios user"
+    comment: "This is nagios user"
     group: nagcmd
     state: present
    when:
@@ -105,8 +105,7 @@
    file: 
     path: /etc/nagios/servers/
     state: directory
-    owner: nagios
-    group: nagcmd
+    group: nagios
     mode: 0750
    when:
      - nagios_master == "master"
@@ -156,4 +155,7 @@
     name: nrpe
     enabled: yes
     state: restarted
-     
+   when:
+    - nagios_master == "master" or
+    - nagios_master == "client"
+ 
