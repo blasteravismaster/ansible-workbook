@@ -140,10 +140,11 @@
  - name: Install the client side rpms nrpe
    yum:  
     name: "{{ item }}"
+    enablerepo: epel
     state: latest
    with_items:
      - nrpe
-     - nagios-plugins 
+     - nagios-plugins* 
 
  - name: Copy the nrpe file to client machine
    template:
