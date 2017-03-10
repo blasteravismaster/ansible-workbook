@@ -122,6 +122,11 @@
     dest: /etc/nagios/servers/
     flat: yes
 
+ - name: Stop the Iptable service
+   service:
+    name: iptables
+    state: stopped
+
  - name: Enabling boot time on and restarting the Nagios and Httpd service
    service:
     name: "{{ item }}"
