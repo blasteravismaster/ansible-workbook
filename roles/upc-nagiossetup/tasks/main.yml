@@ -146,7 +146,7 @@
     dest: /etc/nagios/nrpe.cfg
 
  - name: Next Enable the service on boot up and restart the service
-   yum:
+   service:
     name: nrpe
     enabled: yes
     state: restarted
