@@ -22,7 +22,74 @@
     enablerepo: epel
    with_items:
      - nagios
-     - nagios-plugins*
+     - nagios-plugins
+     - nagios-plugins-all
+     - nagios-plugins-apt
+     - nagios-plugins-bdii
+     - nagios-plugins-bonding
+     - nagios-plugins-breeze
+     - nagios-plugins-by_ssh
+     - nagios-plugins-check-updates
+     - nagios-plugins-cluster
+     - nagios-plugins-dbi
+     - nagios-plugins-dhcp
+     - nagios-plugins-dig
+     - nagios-plugins-disk
+     - nagios-plugins-disk_smb
+     - nagios-plugins-dns
+     - nagios-plugins-dpm-disk
+     - nagios-plugins-dpm-head
+     - nagios-plugins-dummy
+     - nagios-plugins-file_age
+     - nagios-plugins-flexlm
+     - nagios-plugins-fping
+     - nagios-plugins-fts
+     - nagios-plugins-game
+     - nagios-plugins-hpjd
+     - nagios-plugins-http
+     - nagios-plugins-icmp
+     - nagios-plugins-ide_smart
+     - nagios-plugins-ifoperstatus
+     - nagios-plugins-ifstatus
+     - nagios-plugins-ircd
+     - nagios-plugins-lcgdm
+     - nagios-plugins-lcgdm-common
+     - nagios-plugins-ldap
+     - nagios-plugins-lfc
+     - nagios-plugins-load
+     - nagios-plugins-log
+     - nagios-plugins-mailq
+     - nagios-plugins-mrtg
+     - nagios-plugins-mrtgtraf
+     - nagios-plugins-mysql
+     - nagios-plugins-nagios
+     - nagios-plugins-nrpe
+     - nagios-plugins-nt
+     - nagios-plugins-ntp
+     - nagios-plugins-ntp-perl
+     - nagios-plugins-nwstat
+     - nagios-plugins-openmanage
+     - nagios-plugins-oracle
+     - nagios-plugins-overcr
+     - nagios-plugins-perl
+     - nagios-plugins-pgsql
+     - nagios-plugins-ping
+     - nagios-plugins-procs
+     - nagios-plugins-radius
+     - nagios-plugins-real
+     - nagios-plugins-rhev
+     - nagios-plugins-rpc
+     - nagios-plugins-sensors
+     - nagios-plugins-smtp
+     - nagios-plugins-snmp
+     - nagios-plugins-ssh
+     - nagios-plugins-swap
+     - nagios-plugins-tcp
+     - nagios-plugins-time
+     - nagios-plugins-ups
+     - nagios-plugins-uptime
+     - nagios-plugins-users
+     - nagios-plugins-wave
    when:
      - nagios_master == "master"
 
