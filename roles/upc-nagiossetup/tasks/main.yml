@@ -155,7 +155,4 @@
     name: nrpe
     enabled: yes
     state: restarted
-   when:
-    - nagios_master == "master" or
-    - nagios_master == "client"
  
