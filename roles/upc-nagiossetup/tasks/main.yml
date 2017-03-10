@@ -22,7 +22,7 @@
     enablerepo: epel
    with_items:
      - nagios
-     - nagios-plugins
+     - nagios-plugins*
    when:
      - nagios_master == "master"
 
