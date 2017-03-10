@@ -140,7 +140,7 @@
      - nrpe
      - nagios-plugins 
 
- - name: Copt the nrpe file to client machine
+ - name: Copy the nrpe file to client machine
    template:
     src: templates/nrpe.cfg.j2
     dest: /etc/nagios/nrpe.cfg
