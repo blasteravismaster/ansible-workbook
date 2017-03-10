@@ -117,8 +117,9 @@
 
  - name: Pull the file from the remote server to current location
    fetch:
-    src: /root/"{{ ansible_hostname }}".cfg
+    src: /root/{{ ansible_hostname }}.cfg
     dest: /etc/nagios/servers/
+    flat: yes
 
  - name: Enabling boot time on and restarting the Nagios and Httpd service
    service:
