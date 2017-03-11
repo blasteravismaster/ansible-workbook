@@ -176,6 +176,7 @@
     state: directory
     group: nagios
     mode: 0750
+    recurse: yes
    when:
      - nagios_master == "master"
 
