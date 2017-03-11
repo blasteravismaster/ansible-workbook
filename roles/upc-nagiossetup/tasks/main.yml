@@ -177,9 +177,9 @@
    when:
      - nagios_master == "master"
 
- - name: Changing the file permission for the file nagios.cmd
+ - name: Changing the folder permission
    file:
-    path: "{{ items }}"
+    path: "{{ item }}"
     owner: nagios
     group: nagcmd
     recurse: yes
