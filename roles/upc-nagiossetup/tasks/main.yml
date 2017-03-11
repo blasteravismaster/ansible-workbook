@@ -109,13 +109,13 @@
    when:
      - nagios_master == "master"
 
-# - name: Adding user apache to nagcmd group
-#   user:
-#    name: apache
-#    groups: nagcmd
-#   when:
-#     - nagios_master == "master"
-#
+ - name: Adding user apache to nagios group
+   user:
+    name: apache
+    groups: nagios
+   when:
+     - nagios_master == "master"
+
 # - name: Next change the admins email address to appropiately in the contacts.cfg
 #   template:
 #    src: templates/contacts.cfg.j2
@@ -130,7 +130,7 @@
 #    src: templates/nagios.conf.j2
 #    dest: /etc/httpd/conf.d/nagios.conf
 #    owner: apache
-#    group: apache
+#    group: apachose
 #   when:
 #     - nagios_master == "master"
 
@@ -174,6 +174,7 @@
    file: 
     path: "{{ item }}"
     state: directory
+    owner: nagios
     group: nagios
     mode: 0750
     recurse: yes
