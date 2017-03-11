@@ -179,7 +179,7 @@
 
  - name: Changing the file permission for the file nagios.cmd
    file:
-    path: {{ items }}
+    path: "{{ items }}"
     owner: nagios
     group: nagcmd
     recurse: yes
