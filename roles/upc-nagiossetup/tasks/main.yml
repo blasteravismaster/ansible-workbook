@@ -128,25 +128,25 @@
 #    group: apache
 #   when:
 #     - nagios_master == "master"
-#
-# - name: This is install the package python-passlib for httpdpaswd to work
-#   yum:
-#    name: python-passlib
-#    state: latest
-#   when:
-#     - nagios_master == "master"
-#
-# - name: Setting password for the user Nagios Admin
-#   htpasswd:
-#    path: /etc/nagios/passwd
-#    name: nagiosadmin
-#    password: 'nagiosadmin'
-#    owner: root
-#    group: apache
-#    mode: 0640
-#   when:
-#     - nagios_master == "master"
-#
+
+ - name: This is install the package python-passlib for httpdpaswd to work
+   yum:
+    name: python-passlib
+    state: latest
+   when:
+     - nagios_master == "master"
+
+ - name: Setting password for the user Nagios Admin
+   htpasswd:
+    path: /etc/nagios/passwd
+    name: nagiosadmin
+    password: 'nagiosadmin'
+    owner: root
+    group: apache
+    mode: 0640
+   when:
+     - nagios_master == "master"
+
 # - name: Copy the nagios.cfg to the respective location
 #   template:
 #    src: templates/nagios.cfg.j2
@@ -184,23 +184,23 @@
 #    src: /root/{{ ansible_hostname }}.cfg
 #    dest: /etc/nagios/servers/
 #    flat: yes
-#
-# - name: Stop the Iptable service
-#   service:
-#    name: iptables
-#    state: stopped
-#
-# - name: Enabling boot time on and restarting the Nagios and Httpd service
-#   service:
-#    name: "{{ item }}"
-#    enabled: yes
-#    state: restarted
-#   with_items:
-#     - nagios
-#     - httpd
-#   when:
-#     - nagios_master == "master"
-#
+
+ - name: Stop the Iptable service
+   service:
+    name: iptables
+    state: stopped
+
+ - name: Enabling boot time on and restarting the Nagios and Httpd service
+   service:
+    name: "{{ item }}"
+    enabled: yes
+    state: restarted
+   with_items:
+     - nagios
+     - httpd
+   when:
+     - nagios_master == "master"
+
 # - name: Install the client side rpms nrpe
 #   yum:  
 #    name: "{{ item }}"
