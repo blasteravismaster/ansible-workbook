@@ -95,15 +95,15 @@
    when:
      - nagios_master == "master"
 
-# - name: Create user nagios and add group nagcmd
-#   user:
-#    name: nagios
-#    comment: "This is nagios user"
-#    group: nagios
-#    state: present
-#   when:
-#     - nagios_master == "master"
-#
+ - name: Create user nagios and add group nagcmd
+   user:
+    name: nagios
+    comment: "This is nagios user"
+    group: nagios
+    state: present
+   when:
+     - nagios_master == "master"
+
 # - name: Adding user apache to nagcmd group
 #   user:
 #    name: apache
