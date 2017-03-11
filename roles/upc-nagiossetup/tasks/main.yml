@@ -177,7 +177,7 @@
     group: nagios
     mode: 0750
     recurse: yes
-    with_items:
+   with_items:
      - /etc/nagios/
      - /var/log/nagios/
    when:
