@@ -25,7 +25,7 @@ slave2.lab.com
 10.201.96.46
 10.201.96.45
 10.201.96.26
-10.201.96.27 ansible_user=root ansible_ssh_pass=root
+#10.201.96.27 ansible_user=root ansible_ssh_pass=root
 10.201.96.136
 10.201.96.137
 10.201.96.20
