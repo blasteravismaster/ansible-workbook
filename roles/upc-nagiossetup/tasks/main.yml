@@ -95,6 +95,11 @@
    when:
      - nagios_master == "master"
 
+ - name: Add group nagios
+   group:
+    name: nagios
+    state: present
+
  - name: Create user nagios and add group nagcmd
    user:
     name: nagios
