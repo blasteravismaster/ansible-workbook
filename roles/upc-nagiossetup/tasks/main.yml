@@ -14,7 +14,7 @@
    when:
      - nagios_master == "master"
 
-# - debug: msg="The value of nagios_master is {{ nagios_master }}"
+## - debug: msg="The value of nagios_master is {{ nagios_master }}"
 
  - name: Installing the nagios nagios-plugins  package
    yum:
