@@ -1,3 +1,52 @@
 ---
-##### This is to make sure we always have two web servers running tagged web1 and web2
+ - name: Make sure the webgroup exists else create
+   ec2_group:
+    name: webgroup
+    description: This is an webgroup
+    region: us-east-1
+    rules:      ### Inbound Rules
+      - proto: icmp # Allowing Ping 
+        from_port: 8 # icmp type, -1 = any type
+        to_port:  -1 # icmp subtype, -1 = any subtype
+        cidr_ip: 0.0.0.0/0
+      - proto: tcp # Allowing SSH
+        from_port: 22
+        to_port: 22
+        cidr_ip: 0.0.0.0/0
+    rules_egress: #### Outbound Rules
+      - proto: tcp
+        from_port: 22
+        to_port: 22
+        cidr_ip: 0.0.0.0/
+
+- name: Makesure dbgroup else create
+   ec2_group:
+    name: dbgroup
+    description: This is an dbgroup
+    region: us-east-1
+    rules:      ### Inbound Rules
+      - proto: icmp # Allowing Ping 
+        from_port: 8 # icmp type, -1 = any type
+        to_port:  -1 # icmp subtype, -1 = any subtype
+        cidr_ip: 0.0.0.0/0
+      - proto: tcp # Allowing SSH
+        from_port: 3306
+        to_port: 3306
+        cidr_ip: 0.0.0.0/0
+
+ - name: Creating EC2 instance for web servers
+   ec2:
+    key_name: ec2all
+    instance_type: t2.micro
+    image: ami-0b33d91d
+    wait: no
+    group: webserver
+    exact_count: 2
+    instance_tags:
+       name: web1
+       type: http
+    count_tag:
+  	   name: web2
+       type: http
+   assign_public_ip: yes
 
