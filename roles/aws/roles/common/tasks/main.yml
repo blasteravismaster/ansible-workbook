@@ -43,13 +43,10 @@
     zone: us-east-1a
     wait: no
     group: webgroup
-    #instance_tags:
-     # Name: web1
-     # type: http
-    exact_count: 2
-    count_tag:
+    instance_tags:
       Name: web1
       type: http
+    exact_count: 2
     count_tag:
       Name: web2
       type: http
@@ -65,7 +62,7 @@
     wait: no
     group: webgroup
     exact_count: 2
-    count_tag:
+    instance_tags:
       Name: web3
       type: http
     count_tag:
@@ -79,6 +76,7 @@
     name: "HTTP Load Balancer"
     security_group_names: webgroup
     state: present
+    region: us-east-1
     zones:
       - us-east-1a
       - us-east-1b
