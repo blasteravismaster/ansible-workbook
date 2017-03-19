@@ -43,9 +43,9 @@
     zone: us-east-1a
     wait: no
     group: webgroup
-    instance_tags:
-      Name: web1
-      type: http
+ #   instance_tags:
+ #     Name: web1
+ #     type: http
     exact_count: 2
     count_tag:
       Name: web1
@@ -64,9 +64,9 @@
     zone: us-east-1b
     wait: no
     group: webgroup
-    instance_tags:
-      Name: web3
-      type: http
+ #   instance_tags:
+ #     Name: web3
+ #     type: http
     exact_count: 2
     count_tag:
       Name: web3
