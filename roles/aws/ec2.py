@@ -9,8 +9,8 @@ AWS EC2 using the Boto library.
 
 NOTE: This script assumes Ansible is being executed where the environment
 variables needed for Boto have already been set:
-    export AWS_ACCESS_KEY_ID='AKIAIUMKGAWMU5QPDY5Q'
-    export AWS_SECRET_ACCESS_KEY='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'
+    export AWS_ACCESS_KEY_ID='AKIAIAXADAPVGCPJYK3Q'
+    export AWS_SECRET_ACCESS_KEY='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'
 
 optional region environement variable if region is 'auto'
 
