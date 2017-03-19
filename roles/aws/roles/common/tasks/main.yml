@@ -19,7 +19,7 @@
         to_port: 22
         cidr_ip: 0.0.0.0/0
 
- - name: Makesure dbgroup else create
+ - name: Makesure dbgroup exists
    ec2_group:
     name: dbgroup
     description: This is an dbgroup
@@ -42,32 +42,36 @@
     region: us-east-1
     zone: us-east-1a
     wait: no
-    group: webserver
-    instance_tags:
+    group: webgroup
+    #instance_tags:
+     # Name: web1
+     # type: http
+    exact_count: 2
+    count_tag:
       Name: web1
       type: http
-    exact_count: 2
     count_tag:
       Name: web2
       type: http
-    assign_public_ip: yes
+    #assign_public_ip: yes
 
  - name: Creating EC2 instance for web servers
    ec2:
     key_name: ec2all
     instance_type: t2.micro
     image: ami-0b33d91d
+    region: us-east-1
     zone: us-east-1b
     wait: no
-    group: webserver
+    group: webgroup
     exact_count: 2
-    instance_tags:
+    count_tag:
       Name: web3
       type: http
     count_tag:
       Name: web4
       type: http
-    assign_public_ip: yes
+    #assign_public_ip: yes
 
  - name: Creating ELB
    local_action:
