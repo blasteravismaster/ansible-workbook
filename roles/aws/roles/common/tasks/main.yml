@@ -19,7 +19,7 @@
         to_port: 22
         cidr_ip: 0.0.0.0/
 
-- name: Makesure dbgroup else create
+ - name: Makesure dbgroup else create
    ec2_group:
     name: dbgroup
     description: This is an dbgroup
@@ -44,11 +44,11 @@
     group: webserver
     exact_count: 2
     instance_tags:
-       name: web1
-       type: http
+        name: web1
+        type: http
     count_tag:
-  	   name: web2
-       type: http
+  	name: web2
+        type: http
    assign_public_ip: yes
 
  - name: Creating EC2 instance for web servers
@@ -61,11 +61,11 @@
     group: webserver
     exact_count: 2
     instance_tags:
-       name: web3
-       type: http
+        name: web3
+        type: http
     count_tag:
-  	   name: web4
-       type: http
+  	name: web4
+        type: http
    assign_public_ip: yes
 
  - name: Creating ELB 
@@ -86,15 +86,15 @@
  - name: Adding the hosts to the created ELB 
    pre_tasks:
       - name: Gathering ec2 facts
-      action: ec2_facts
+        action: ec2_facts
 
    post_tasks:
       - name: Instance Register
-      local_action:
-       module: ec2_elb
-       instance_id: "{{ ansible_ec2_instance_id }}"
-       ec2_elbs: webgroup
-       state: present
+        local_action:
+         module: ec2_elb
+         instance_id: "{{ ansible_ec2_instance_id }}"
+         ec2_elbs: webgroup
+         state: present
 
  - name: Uploading my image to S3 for serving the webserver
    s3:
