@@ -6,7 +6,7 @@
     region: us-east-1
     rules:      ### Inbound Rules
       - proto: icmp # Allowing Ping
-        from_port: 8 # icmp type, -1 = any type
+        from_port: -1 # icmp type, -1 = any type
         to_port:  -1 # icmp subtype, -1 = any subtype
         cidr_ip: 0.0.0.0/0
       - proto: tcp # Allowing SSH
@@ -17,7 +17,7 @@
       - proto: tcp
         from_port: 22
         to_port: 22
-        cidr_ip: 0.0.0.0/
+        cidr_ip: 0.0.0.0/0
 
  - name: Makesure dbgroup else create
    ec2_group:
