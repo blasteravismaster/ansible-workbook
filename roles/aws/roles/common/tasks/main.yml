@@ -26,7 +26,7 @@
     region: us-east-1
     rules:      ### Inbound Rules
       - proto: icmp # Allowing Ping
-        from_port: 8 # icmp type, -1 = any type
+        from_port: -1 # icmp type, -1 = any type
         to_port:  -1 # icmp subtype, -1 = any subtype
         cidr_ip: 0.0.0.0/0
       - proto: tcp # Allowing SSH
@@ -39,6 +39,7 @@
     key_name: ec2all
     instance_type: t2.micro
     image: ami-0b33d91d
+    region: us-east-1
     zone: us-east-1a
     wait: no
     group: webserver
