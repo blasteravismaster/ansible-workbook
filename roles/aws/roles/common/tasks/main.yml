@@ -46,7 +46,7 @@
     instance_tags:
       Name: web1
       type: http
-    exact_count: 2
+    exact_count: 1
     count_tag:
       Name: web2
       type: http
@@ -61,10 +61,10 @@
     zone: us-east-1b
     wait: no
     group: webgroup
-    exact_count: 2
     instance_tags:
       Name: web3
       type: http
+    exact_count: 1
     count_tag:
       Name: web4
       type: http
@@ -73,7 +73,7 @@
  - name: Creating ELB
    local_action:
     module: ec2_elb_lb
-    name: "HTTP Load Balancer"
+    name: HTTPLoadBalancer
     security_group_names: webgroup
     state: present
     region: us-east-1
