@@ -1,4 +1,4 @@
- ---
+---
  - name: Make sure the webgroup exists else create
    ec2_group:
     name: webgroup
