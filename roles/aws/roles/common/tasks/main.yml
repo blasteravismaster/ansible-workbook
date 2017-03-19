@@ -46,7 +46,7 @@
     instance_tags:
       Name: web1
       type: http
-    exact_count: 1
+    exact_count: 2
     count_tag:
       Name: web2
       type: http
@@ -64,37 +64,37 @@
     instance_tags:
       Name: web3
       type: http
-    exact_count: 1
+    exact_count: 2
     count_tag:
       Name: web4
       type: http
     #assign_public_ip: yes
 
- - name: Creating ELB
-   local_action:
-    module: ec2_elb_lb
-    name: HTTPLoadBalancer
-    security_group_names: webgroup
-    state: present
-    region: us-east-1
-    zones:
-      - us-east-1a
-      - us-east-1b
-    listeners:
-      - protocol: http # options are http, https, ssl, tcp
-        load_balancer_port: 80
-        instance_port: 80
-        proxy_protocol: True
-
- - name: Gathering ec2 facts
-   action: ec2_facts
-
- - name: Instance Register
-   local_action:
-     module: ec2_elb
-     instance_id: "{{ ansible_ec2_instance_id }}"
-     ec2_elbs: webgroup
-     state: present
+# - name: Creating ELB
+#   local_action:
+#    module: ec2_elb_lb
+#    name: HTTPLoadBalancer
+#    security_group_names: webgroup
+#    state: present
+#    region: us-east-1
+#    zones:
+#      - us-east-1a
+#      - us-east-1b
+#    listeners:
+#      - protocol: http # options are http, https, ssl, tcp
+#        load_balancer_port: 80
+#        instance_port: 80
+#        proxy_protocol: True
+#
+# - name: Gathering ec2 facts
+#   action: ec2_facts
+#
+# - name: Instance Register
+#   local_action:
+#     module: ec2_elb
+#     instance_id: "{{ ansible_ec2_instance_id }}"
+#     ec2_elbs: webgroup
+#     state: present
 
  - name: Uploading my image to S3 for serving the webserver
    s3:
