@@ -39,7 +39,6 @@
     key_name: ec2all
     instance_type: t2.micro
     image: ami-0b33d91d
-    state: present
     region: us-east-1
     zone: us-east-1a
     wait: no
@@ -48,6 +47,9 @@
       Name: web1
       type: http
     exact_count: 2
+    count_tag:
+      Name: web1
+      type: http
     count_tag:
       Name: web2
       type: http
@@ -58,7 +60,6 @@
     key_name: ec2all
     instance_type: t2.micro
     image: ami-0b33d91d
-    state: present
     region: us-east-1
     zone: us-east-1b
     wait: no
@@ -67,6 +68,9 @@
       Name: web3
       type: http
     exact_count: 2
+    count_tag:
+      Name: web3
+      type: http
     count_tag:
       Name: web4
       type: http
