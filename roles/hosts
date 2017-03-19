@@ -1,3 +1,6 @@
+[local]
+localhost
+
 [masters]
 nagiosmaster ansible_host=10.197.24.45 nagios_master=master 
 
