@@ -39,6 +39,7 @@
     key_name: ec2all
     instance_type: t2.micro
     image: ami-0b33d91d
+    state: present
     region: us-east-1
     zone: us-east-1a
     wait: no
@@ -57,6 +58,7 @@
     key_name: ec2all
     instance_type: t2.micro
     image: ami-0b33d91d
+    state: present
     region: us-east-1
     zone: us-east-1b
     wait: no
