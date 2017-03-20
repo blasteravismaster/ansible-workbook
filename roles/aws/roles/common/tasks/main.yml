@@ -48,7 +48,7 @@
  #     type: http
     exact_count: 2
     count_tag:
-      Name: {{ item }}
+      Name: "{{ item }}"
       type: http
     with_items:
       - web1
