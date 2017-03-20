@@ -46,18 +46,6 @@
      key_name: ec2all
      #keypair: '{{ keypair }}'
      instance_tags: "{{ item.tags }}"
-     register: ec2
-     with_items: ec2_instances
-     group: "{{ item.group }}"
-     count: 1
-     instance_type: 't2.micro'
-     image: '{{ item.image }}'
-     wait: no
-     region: 'us-east-1'
-     zone: '{{ item.zone }}'
-     key_name: ec2all
-     #keypair: '{{ keypair }}'
-     instance_tags: "{{ item.tags }}"
    register: ec2
    with_items: "{{ec2_instances}}"
 
