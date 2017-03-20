@@ -3,7 +3,7 @@
    ### This is for host1
     - name: "web1"
       image: "ami-0b33d91d" # Amazon Linux
-      tags: '{"Name":"web1"}'
+      tags: '{"Name":"web1","Type":"http"}'
       group: 'webgroup' # 
       zone: us-east-1a
     ### This is for host2

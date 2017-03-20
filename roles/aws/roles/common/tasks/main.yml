@@ -44,7 +44,6 @@
      region: 'us-east-1'
      zone: '{{ item.zone }}'
      key_name: ec2all
-     #keypair: '{{ keypair }}'
      count_tag: "{{ item.tags }}"
      instance_tags: "{{ item.tags }}"
    register: ec2
