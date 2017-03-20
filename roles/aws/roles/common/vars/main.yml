@@ -9,6 +9,6 @@
     ### This is for host2
     - name: "web2"
       image: "ami-0b33d91d" ## Amazon Linux
-      tags: ['web2', 'http']
+      tags: '{"Name":"web2"}'
       group: 'webgroup' #
       zone: us-east-1b

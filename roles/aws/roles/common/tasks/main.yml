@@ -37,7 +37,7 @@
  - name: Creating EC2 instance for web servers for zone 
    ec2:
      group: webgroup
-     exact_count: 1
+     exact_count: 2
      instance_type: 't2.micro'
      image: '{{ item.image }}'
      wait: no
