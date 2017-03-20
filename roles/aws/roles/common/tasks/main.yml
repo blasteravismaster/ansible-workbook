@@ -37,7 +37,7 @@
  - name: Creating EC2 instance for web servers for zone 
    ec2:
      group: webgroup
-     exact_count: 2
+     exact_count: 1
      instance_type: 't2.micro'
      image: '{{ item.image }}'
      wait: no
@@ -49,46 +49,6 @@
      instance_tags: "{{ item.tags }}"
    register: ec2
    with_items: "{{ec2_instances}}"
-
-#  - name: Creating EC2 instance for web servers
-#    ec2:
-#    key_name: ec2all
-#    instance_type: t2.micro
-#    image: ami-0b33d91d
-#    region: us-east-1
-#    zone: us-east-1a
-#    wait: no
-#    group: webgroup
-#    instance_tags:
-#      Name: web1
-#      type: http
-#    exact_count: 2
-#    count_tag:
-#      Name: web1
-#      type: http
-#
-#    #assign_public_ip: yes
-#
-# - name: Creating EC2 instance for web servers
-#   ec2:
-#    key_name: ec2all
-#    instance_type: t2.micro
-#    image: ami-0b33d91d
-#    region: us-east-1
-#    zone: us-east-1b
-#    wait: no
-#    group: webgroup
-# #   instance_tags:
-# #     Name: web3
-# #     type: http
-#    exact_count: 2
-#    count_tag:
-#      Name: web3
-#      type: http
-#    count_tag:
-#      Name: web4
-#      type: http
-#    #assign_public_ip: yes
 
 # - name: Creating ELB
 #   local_action:
