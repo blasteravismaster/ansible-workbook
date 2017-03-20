@@ -9,6 +9,21 @@
     ### This is for host2
     - name: "web2"
       image: "ami-0b33d91d" ## Amazon Linux
-      tags: '{"Name":"web2"}'
+      tags: '{"Name":"web2","Type":"http"}'
+      group: 'webgroup' #
+      zone: us-east-1a
+    ### This is for host3
+    - name: "web3"
+      image: "ami-0b33d91d" ## Amazon Linux
+      tags: '{"Name":"web3","Type":"http"}'
       group: 'webgroup' #
       zone: us-east-1b
+    ### This is for host4
+    - name: "web2"
+      image: "ami-0b33d91d" ## Amazon Linux
+      tags: '{"Name":"web4","Type":"http"}'
+      group: 'webgroup' #
+      zone: us-east-1b
+
+
+
