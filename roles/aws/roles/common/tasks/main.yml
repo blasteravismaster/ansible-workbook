@@ -37,7 +37,7 @@
  - name: Creating EC2 instance for web servers for zone "{{item.zone }}"
    ec2:
      group: "{{ item.group }}"
-     count: 1
+     exact_count: 1
      instance_type: 't2.micro'
      image: '{{ item.image }}'
      wait: no
@@ -45,6 +45,7 @@
      zone: '{{ item.zone }}'
      key_name: ec2all
      #keypair: '{{ keypair }}'
+     count_tag: "{{ item.tags }}"
      instance_tags: "{{ item.tags }}"
    register: ec2
    with_items: "{{ec2_instances}}"
