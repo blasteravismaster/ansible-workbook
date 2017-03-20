@@ -48,33 +48,33 @@
  #     type: http
     exact_count: 2
     count_tag:
-      Name: web1
+      Name: {{ item }}
       type: http
-    count_tag:
-      Name: web2
-      type: http
+    with_items:
+      - web1
+      - web2
     #assign_public_ip: yes
-
- - name: Creating EC2 instance for web servers
-   ec2:
-    key_name: ec2all
-    instance_type: t2.micro
-    image: ami-0b33d91d
-    region: us-east-1
-    zone: us-east-1b
-    wait: no
-    group: webgroup
- #   instance_tags:
- #     Name: web3
- #     type: http
-    exact_count: 2
-    count_tag:
-      Name: web3
-      type: http
-    count_tag:
-      Name: web4
-      type: http
-    #assign_public_ip: yes
+#
+# - name: Creating EC2 instance for web servers
+#   ec2:
+#    key_name: ec2all
+#    instance_type: t2.micro
+#    image: ami-0b33d91d
+#    region: us-east-1
+#    zone: us-east-1b
+#    wait: no
+#    group: webgroup
+# #   instance_tags:
+# #     Name: web3
+# #     type: http
+#    exact_count: 2
+#    count_tag:
+#      Name: web3
+#      type: http
+#    count_tag:
+#      Name: web4
+#      type: http
+#    #assign_public_ip: yes
 
 # - name: Creating ELB
 #   local_action:
