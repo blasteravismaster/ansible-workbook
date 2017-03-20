@@ -1,19 +1,4 @@
 ---
- - vars:
-   ec2_instances:
-     ### This is for host1
-      - name: "web1"
-        image: "ami-0b33d91d" # Amazon Linux
-        tags: ['web1', 'http']
-        group: 'webgroup' # 
-        zone: us-east-1a
-      ### This is for host2
-      - name: "web2"
-        image: "ami-0b33d91d" ## Amazon Linux
-        tags: ['web2', 'http']
-        group: 'webgroup' #
-        zone: us-east-1b
- 
  - name: Make sure the webgroup exists else create
    ec2_group:
     name: webgroup
@@ -142,10 +127,10 @@
 #     ec2_elbs: webgroup
 #     state: present
 
- - name: Uploading my image to S3 for serving the webserver
-   s3:
-    bucket: kobigha
-    object: /images/1.jpg
-    src: files/1.jpg
-    mode: put
-
+# - name: Uploading my image to S3 for serving the webserver
+#   s3:
+#    bucket: kobigha
+#    object: /images/1.jpg
+#    src: files/1.jpg
+#    mode: put
+#

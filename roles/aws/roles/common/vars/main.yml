@@ -1,2 +1,14 @@
 ---
-# vars file for common
+ ec2_instances:
+   ### This is for host1
+    - name: "web1"
+      image: "ami-0b33d91d" # Amazon Linux
+      tags: ['web1', 'http']
+      group: 'webgroup' # 
+      zone: us-east-1a
+    ### This is for host2
+    - name: "web2"
+      image: "ami-0b33d91d" ## Amazon Linux
+      tags: ['web2', 'http']
+      group: 'webgroup' #
+      zone: us-east-1b
