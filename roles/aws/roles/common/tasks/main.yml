@@ -49,7 +49,7 @@
    register: ec2
    with_items: "{{ec2_instances}}"
 
- - name: Creating ELB
+ - name: Enforce ELB exists
    local_action:
     module: ec2_elb_lb
     name: HTTPLoadBalancer
@@ -65,10 +65,7 @@
         instance_port: 80
         proxy_protocol: True
 
-# - name: Gathering ec2 facts
-#   action: ec2_facts
-
- - name: Printing all the variables which we got for instances id
+ - name: Getting the list of the instance ids to be add in the ELB
    shell: aws ec2 describe-instances --filters "Name=instance-state-name,Values=running" "Name=tag-value,Values=http" --output text --query "Reservations[*].Instances[*].{ID:InstanceId}"
    register: instvalues
 
@@ -78,9 +75,10 @@
      instance_id: "{{ item }}"
      ec2_elbs: webgroup
      region: us-east-1
+     wait: no
      state: present
    with_items:
-      - "{{ instvalues }}"
+      - "{{ instvalues.stdout_lines|list }}"
 
 # - name: Uploading my image to S3 for serving the webserver
 #   s3:
