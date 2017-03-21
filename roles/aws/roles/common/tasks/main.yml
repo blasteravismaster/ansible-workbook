@@ -1,5 +1,5 @@
 ---
- - name: Make sure the webgroup exists else create
+ - name: Enforce the webgroup exists
    ec2_group:
     name: webgroup
     description: This is an webgroup
@@ -19,7 +19,7 @@
         to_port: 22
         cidr_ip: 0.0.0.0/0
 
- - name: Makesure dbgroup exists
+ - name: Enforce dbgroup exists
    ec2_group:
     name: dbgroup
     description: This is an dbgroup
@@ -65,21 +65,22 @@
         instance_port: 80
         proxy_protocol: True
 
- - name: Gathering ec2 facts
-   action: ec2_facts
+# - name: Gathering ec2 facts
+#   action: ec2_facts
 
  - name: Printing all the variables which we got for instances id
    shell: aws ec2 describe-instances --filters "Name=instance-state-name,Values=running" "Name=tag-value,Values=http" --output text --query "Reservations[*].Instances[*].{ID:InstanceId}"
    register: instvalues
 
- - name: Instance Register
+ - name: Register the newly created instances to the ELB
    local_action:
      module: ec2_elb
      instance_id: "{{ item }}"
-     with_items:
-        - "{{ instvalues }} "
      ec2_elbs: webgroup
+     region: us-east-1
      state: present
+   with_items:
+      - "{{ instvalues }}"
 
 # - name: Uploading my image to S3 for serving the webserver
 #   s3:
