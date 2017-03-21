@@ -58,8 +58,7 @@
     security_group_names: "{{secGroupWeb}}"
     state: present
     region: "{{regionDefault}}"
-    zones:
-      - "{{zonesDefault}}"
+    zones: "{{zonesDefault}}"
     listeners:
       - protocol: "{{elbProtocol}}" # options are http, https, ssl, tcp
         load_balancer_port: "{{elbLBport}}"
@@ -87,4 +86,4 @@
 #    object: /images/1.jpg
 #    src: files/1.jpg
 #    mode: put
-#
+###
