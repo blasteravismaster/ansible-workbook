@@ -18,6 +18,10 @@
         from_port: 22
         to_port: 22
         cidr_ip: 0.0.0.0/0
+      - proto: tcp ### Allowing http traffic from the ec2 to public
+        from_port: 80
+        to_port: 80
+        cidr_ip: 0.0.0.0/0
 
  - name: Enforce dbgroup exists
    ec2_group:
