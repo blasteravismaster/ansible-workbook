@@ -80,10 +80,11 @@
    with_items:
       - "{{instvalues.stdout_lines|list}}"
 
-# - name: Uploading my image to S3 for serving the webserver
-#   s3:
-#    bucket: kobigha
-#    object: /images/1.jpg
-#    src: files/1.jpg
-#    mode: put
-###
+ - name: Uploading my image to S3 for serving the webserver
+   s3:
+    bucket: kobigha
+    object: /images/1.jpg
+    src: roles/webservers/files/1.jpg
+    mode: put
+    permission: public-read
+
