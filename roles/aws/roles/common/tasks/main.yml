@@ -1,9 +1,9 @@
 ---
  - name: Enforce the webgroup exists
    ec2_group:
-    name: webgroup
+    name: "{{secGroupWeb}}"
     description: This is an webgroup
-    region: us-east-1
+    region: "{{ regionDefault }}"
     rules:      ### Inbound Rules
       - proto: icmp # Allowing Ping
         from_port: -1 # icmp type, -1 = any type
@@ -21,48 +21,47 @@
 
  - name: Enforce dbgroup exists
    ec2_group:
-    name: dbgroup
+    name: "{{secGroupDB}}"
     description: This is an dbgroup
-    region: us-east-1
+    region: "{{regionDefault}}"
     rules:      ### Inbound Rules
       - proto: icmp # Allowing Ping
         from_port: -1 # icmp type, -1 = any type
         to_port:  -1 # icmp subtype, -1 = any subtype
         cidr_ip: 0.0.0.0/0
-      - proto: tcp # Allowing SSH
+      - proto: tcp # Allowing MySQL
         from_port: 3306
         to_port: 3306
         cidr_ip: 0.0.0.0/0
 
  - name: Creating EC2 instance for web servers for zone 
    ec2:
-     group: '{{ item.group }}'
+     group: '{{item.group}}'
      exact_count: 1
-     instance_type: 't2.micro'
-     image: '{{ item.image }}'
+     instance_type: "{{instanceType}}"
+     image: '{{item.image}}'
      wait: no
-     region: 'us-east-1'
-     zone: '{{ item.zone }}'
-     key_name: ec2all
-     count_tag: "{{ item.tags }}"
-     instance_tags: "{{ item.tags }}"
+     region: "{{regionDefault}}"
+     zone: '{{item.zone}}'
+     key_name: "{{keyPairName}}"
+     count_tag: "{{item.tags}}"
+     instance_tags: "{{item.tags}}"
    register: ec2
    with_items: "{{ec2_instances}}"
 
  - name: Enforce ELB exists
    local_action:
     module: ec2_elb_lb
-    name: HTTPLoadBalancer
-    security_group_names: webgroup
+    name: "{{elbNameWeb}}"
+    security_group_names: "{{secGroupWeb}}"
     state: present
-    region: us-east-1
+    region: "{{regionDefault}}"
     zones:
-      - us-east-1a
-      - us-east-1b
+      - "{{zonesDefault}}"
     listeners:
-      - protocol: http # options are http, https, ssl, tcp
-        load_balancer_port: 80
-        instance_port: 80
+      - protocol: "{{elbProtocol}}" # options are http, https, ssl, tcp
+        load_balancer_port: "{{elbLBport}}"
+        instance_port: "{{elbInstPort}}"
         proxy_protocol: True
 
  - name: Getting the list of the instance ids to be add in the ELB
@@ -72,13 +71,13 @@
  - name: Register the newly created instances to the ELB
    local_action:
      module: ec2_elb
-     instance_id: "{{ item }}"
-     ec2_elbs: webgroup
-     region: us-east-1
+     instance_id: "{{item}}"
+     ec2_elbs: "{{elbNameWeb}}"
+     region: "{{regionDefault}}"
      wait: no
      state: present
    with_items:
-      - "{{ instvalues.stdout_lines|list }}"
+      - "{{instvalues.stdout_lines|list}}"
 
 # - name: Uploading my image to S3 for serving the webserver
 #   s3:
