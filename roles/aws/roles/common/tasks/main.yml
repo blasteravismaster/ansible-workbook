@@ -49,31 +49,37 @@
    register: ec2
    with_items: "{{ec2_instances}}"
 
-# - name: Creating ELB
-#   local_action:
-#    module: ec2_elb_lb
-#    name: HTTPLoadBalancer
-#    security_group_names: webgroup
-#    state: present
-#    region: us-east-1
-#    zones:
-#      - us-east-1a
-#      - us-east-1b
-#    listeners:
-#      - protocol: http # options are http, https, ssl, tcp
-#        load_balancer_port: 80
-#        instance_port: 80
-#        proxy_protocol: True
-#
-# - name: Gathering ec2 facts
-#   action: ec2_facts
-#
-# - name: Instance Register
-#   local_action:
-#     module: ec2_elb
-#     instance_id: "{{ ansible_ec2_instance_id }}"
-#     ec2_elbs: webgroup
-#     state: present
+ - name: Creating ELB
+   local_action:
+    module: ec2_elb_lb
+    name: HTTPLoadBalancer
+    security_group_names: webgroup
+    state: present
+    region: us-east-1
+    zones:
+      - us-east-1a
+      - us-east-1b
+    listeners:
+      - protocol: http # options are http, https, ssl, tcp
+        load_balancer_port: 80
+        instance_port: 80
+        proxy_protocol: True
+
+ - name: Gathering ec2 facts
+   action: ec2_facts
+
+ - name: Printing all the variables which we got for instances id
+   shell: aws ec2 describe-instances --filters "Name=instance-state-name,Values=running" "Name=tag-value,Values=http" --output text --query "Reservations[*].Instances[*].{ID:InstanceId}"
+   register: instvalues
+
+ - name: Instance Register
+   local_action:
+     module: ec2_elb
+     instance_id: "{{ item }}"
+     with_items:
+        - "{{ instvalues }} "
+     ec2_elbs: webgroup
+     state: present
 
 # - name: Uploading my image to S3 for serving the webserver
 #   s3:
