@@ -43,6 +43,8 @@
      wait: no
      region: "{{regionDefault}}"
      zone: '{{item.zone}}'
+     wait: yes
+     wait_timeout: 120
      key_name: "{{keyPairName}}"
      count_tag: "{{item.tags}}"
      instance_tags: "{{item.tags}}"
