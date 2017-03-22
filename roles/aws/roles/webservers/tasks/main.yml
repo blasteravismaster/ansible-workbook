@@ -1,4 +1,15 @@
 ---
+
+ - name: Enforce System tools Package are present
+   yum:  
+    name: "{{item}}"
+    state: latest
+   with_items: 
+     - nmap
+     - telnet
+     - screen
+     - tree
+
  - name: Update all the packages to the latest
    yum: 
     name: "*"
@@ -10,12 +21,12 @@
     state: latest
 
  - name: Copy the index.html file to the location
-   file: 
-    src: index.html
-    dest: /var/www/html/
+   template:
+    src: templates/index.html.j2
+    dest: /var/www/html/index.html
     mode: 0755
    notify:
-    - Restart Apache
+     - Restart httpd
 
  - name: Stop the firewall service
    service:
@@ -23,6 +34,3 @@
     state: stopped
     enabled: no
 
- - name: Make sure selinux is disabled
-   selinux:
-    state: disabled 
