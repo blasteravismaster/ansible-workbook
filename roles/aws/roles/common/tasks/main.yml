@@ -111,9 +111,3 @@
     mode: put
     permission: public-read
 
- - name: Creating Zone in Route 53
-   route53_zone:
-    zone: tamzlab.com
-    state: present
-    comment: This is Sivanesans Domain
- 
