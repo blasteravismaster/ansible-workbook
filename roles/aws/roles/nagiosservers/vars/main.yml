@@ -1,2 +1,4 @@
 ---
-# vars file for nagiosservers
+ adminemail: sitamilm@cisco.com
+ nagiosserverIP: 10.197.24.45
+
