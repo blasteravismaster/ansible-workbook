@@ -74,6 +74,15 @@
    register: ec2
    with_items: "{{ec2_instances}}"
 
+ - name: Wait for SSH
+   wait_for:
+     host: "{{ item['instances'][0]['public_ip'] }}"
+     port: 22
+     delay: 10
+     timeout: 320
+     state: started
+   with_items: ec2.results
+
  - name: Enforce ELB exists
    local_action:
     module: ec2_elb_lb
