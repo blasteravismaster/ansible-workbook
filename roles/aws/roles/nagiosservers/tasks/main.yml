@@ -219,7 +219,7 @@
  - name: Install the client side rpms nrpe
    yum:  
     name: "{{ item }}"
-    enablerepo: epel
+   # enablerepo: epel #Disalbed for aws
     state: latest
    with_items:
      - nrpe
