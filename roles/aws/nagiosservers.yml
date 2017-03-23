@@ -15,7 +15,7 @@
        groups: dynamic_webservers ##### This is the dynamic host group created
       with_items: "{{pubIPs.stdout_lines|list}}"
 
- - hosts: dynamic_webservers
+ - hosts: dynamic_webservers,masters
    remote_user: ec2-user
    become: yes
    gather_facts: false
