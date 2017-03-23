@@ -1,6 +1,8 @@
 ###### This is for aws
 [tag_ServType_client]
 
+[tag_Name_http]
+
 [masters]
 nagiosmaster ansible_host=10.197.24.45 nagios_master=master 
 
@@ -11,6 +13,8 @@ masters
 [nagios:vars]
 nagios_master=client
 nagiosmaster=10.197.24.45
+
+#####################
 
 [local]
 localhost
