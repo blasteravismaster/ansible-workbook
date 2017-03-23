@@ -56,11 +56,6 @@
         from_port: 5666
         to_port: 5666
         cidr_ip: 0.0.0.0/0
-    rules_egress: #### Outbound Rules
-      - proto: tcp
-        from_port: -1
-        to_port: -1
-        cidr_ip: 0.0.0.0/0
 
  - name: Creating EC2 instance for web servers for zone 
    ec2:
