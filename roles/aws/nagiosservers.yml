@@ -20,6 +20,6 @@
    become: yes
    gather_facts: false
    roles:
-   - webservers
+   - nagiosservers
 
 
