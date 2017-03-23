@@ -5,21 +5,30 @@
    roles:
    - common
 
-######## WebServers ###########
    tasks:
-    - name: Shelling out the public dns
+    - name: Getting the Public IP of the ec2 web servers
       shell: aws ec2 describe-instances --filters "Name=instance-state-name,Values=running" "Name=tag-value,Values=http" --output text --query "Reservations[*].Instances[*].{ID:PublicIpAddress}"
       register: pubIPs
 
     - name: Create SSH Group to login dynamically to EC2 Instance(s)
       add_host:
        hostname: "{{item}}"
-       groups: dynamic_webservers ##### This is the dynamic host group created
+       groups: tag_ServType_client ##### This is the dynamic host group created
       with_items: "{{pubIPs.stdout_lines|list}}"
 
- - hosts: dynamic_webservers
+######## Http Setup ###########
+ - hosts: tag_ServType_client
    remote_user: ec2-user
    become: yes
    gather_facts: false
    roles:
    - webservers
+
+####### Nagios Setup ############
+ - hosts: nagios
+   remote_user: ec2-user
+   become: yes
+   gather_facts: false
+   roles:
+   - nagiosservers
+

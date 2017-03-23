@@ -45,6 +45,22 @@
         from_port: 3306
         to_port: 3306
         cidr_ip: 0.0.0.0/0
+ 
+ - name: Enforce nagiosgroup exists
+   ec2_group:
+    name: "{{secGroupNagios}}"
+    description: This is an nagiosgroup
+    region: "{{regionDefault}}"
+    rules:      ### Inbound Rules
+      - proto: tcp # Allowing NRPE
+        from_port: 5666
+        to_port: 5666
+        cidr_ip: 0.0.0.0/0
+    rules_egress: #### Outbound Rules
+      - proto: tcp
+        from_port: -1
+        to_port: -1
+        cidr_ip: 0.0.0.0/0
 
  - name: Creating EC2 instance for web servers for zone 
    ec2:

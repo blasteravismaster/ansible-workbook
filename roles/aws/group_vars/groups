@@ -1,0 +1,5 @@
+---
+nagios_master: client
+nagiosmaster: 10.197.24.45
+
+

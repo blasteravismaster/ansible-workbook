@@ -1,4 +1,6 @@
 ---
  adminemail: sitamilm@cisco.com
  nagiosserverIP: 10.197.24.45
-
+##### For AWS Demo
+ nagiosserverIP1: 72.163.220.5
+ nagiosserverIP2: 72.163.220.30

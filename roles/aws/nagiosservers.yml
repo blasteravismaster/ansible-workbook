@@ -12,13 +12,13 @@
     - name: Create SSH Group to login dynamically to EC2 Instance(s)
       add_host:
        hostname: "{{item}}"
-       groups: dynamic_webservers ##### This is the dynamic host group created
+       groups: tag_ServType_client ##### This is the dynamic host group created
       with_items: "{{pubIPs.stdout_lines|list}}"
-
- - hosts: dynamic_webservers,masters
+   
+ - hosts: nagios
    remote_user: ec2-user
    become: yes
-   gather_facts: false
+   gather_facts: true
    roles:
    - nagiosservers
 
