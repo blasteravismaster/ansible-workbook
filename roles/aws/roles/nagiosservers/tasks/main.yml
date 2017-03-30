@@ -13,9 +13,7 @@
      - gd-devel
    when:
      - nagios_master == "master"
-
-## - debug: msg="The value of nagios_master is {{ nagios_master }}"
-
+ 
  - name: Installing the nagios nagios-plugins  package
    yum:
     name: "{{ item }}"
@@ -189,16 +187,26 @@
    when:
      - nagios_master == "master"
 
+ - debug: "var=inventory_host{{inventory_hostname}}"
+
+ - debug: "msg=ansible_host{{ansible_host}}"
+
  - name: Copy the client cfg file which has the parameters of what to be checked
    template:
     src: templates/clientname.cfg.j2
-    dest: "/root/{{ ansible_hostname }}.cfg"
+    dest: "/root/{{ item }}.cfg"
+   when:
+    - ansible_host == "{{ item }}"
+   with_items: "{{pubNagIPslist|list}}"
 
  - name: Pull the file from the remote server to current location
    fetch:
-    src: "/root/{{ ansible_hostname }}.cfg"
+    src: "/root/{{ item }}.cfg"
     dest: /etc/nagios/servers/
     flat: yes
+   when:
+    - ansible_host == "{{ item }}"
+   with_items: "{{pubNagIPslist|list}}"
 
  - name: Stop the Iptable service
    service:
