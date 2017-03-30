@@ -25,7 +25,7 @@
        hostname: "{{item}}"
        groups: tag_ServType_client ##### This is the dynamic host group created
       with_items: "{{pubNagIPs.stdout_lines|list}}"
-
+  
 
 ######## Http Setup ###########
  - hosts: tag_Name_http
@@ -40,6 +40,6 @@
    remote_user: ec2-user
    become: yes
    gather_facts: true
-   roles:
-   - nagiosservers
+    roles:
+   -  { role: nagiosservers, pubNagIPslist: "{{ groups[['nagios'][0]]|list }}" }
 
