@@ -187,9 +187,9 @@
    when:
      - nagios_master == "master"
 
- - debug: "var=inventory_host{{inventory_hostname}}"
+# - debug: "var=inventory_host{{inventory_hostname}}"
 
- - debug: "msg=ansible_host{{ansible_host}}"
+# - debug: "msg=ansible_host{{ansible_host}}"
 
  - name: Copy the client cfg file which has the parameters of what to be checked
    template:
