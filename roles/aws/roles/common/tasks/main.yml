@@ -66,11 +66,20 @@
      region: "{{regionDefault}}"
      zone: '{{item.zone}}'
      wait: yes
-     wait_timeout: 300
+     wait_timeout: 100
      key_name: "{{keyPairName}}"
      count_tag: "{{item.tags}}"
      instance_tags: "{{item.tags}}"
    register: ec2
+   with_items: "{{ec2_instances}}"
+
+ - name: Wait for SSH
+   wait_for:
+     host: "{{ item['instances'][0]['public_ip'] }}"
+     port: 22
+     delay: 10
+     timeout: 320
+     state: started
    with_items: "{{ec2_instances}}"
 
  - name: Enforce ELB exists
