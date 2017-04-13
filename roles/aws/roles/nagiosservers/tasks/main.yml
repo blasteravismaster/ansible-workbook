@@ -1,4 +1,11 @@
 ---
+ - name: Getting the NAT ip of the CISCO network
+   shell: netstat -tulpan |grep ssh|grep "ESTABLISHED"|awk '{ print $5}'| cut -d':' -f1|head -n 1
+   register: nagiosserverNATIP
+
+ - set_fact:
+    nagiosserverIPN: "{{ nagiosserverNATIP.stdout }}"
+ 
  - name: This module is to install the basic required package in the NAGIOS server
    yum:
     name: "{{ item }}"
@@ -244,6 +251,8 @@
     owner: nagios
     group: nagios
     recurse: yes
+   when:
+     - nagios_master == "client"
     
  - name: Next Enable the service on boot up and restart the service
    service:
