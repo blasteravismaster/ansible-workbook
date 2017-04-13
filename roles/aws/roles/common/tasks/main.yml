@@ -81,7 +81,7 @@
    wait_for:
      host: "{{ item }}"
      port: 22
-     delay: 10
+     delay: 200
      timeout: 15
      state: started
    with_items: "{{pubIPs.stdout_lines|list}}"
