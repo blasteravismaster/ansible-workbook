@@ -31,7 +31,7 @@
       group: ['webgroup', 'nagiosgroup']
       zone: us-east-1b
     ### This is for host4
-    - name: "web2"
+    - name: "web4"
       image: "ami-0b33d91d" ## Amazon Linux
       tags: '{"Name":"web4","Type":"http","ServType":"client"}'
       group: ['webgroup', 'nagiosgroup']
