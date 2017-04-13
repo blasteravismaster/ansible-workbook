@@ -231,13 +231,20 @@
     state: latest
    with_items:
      - nrpe
-     - nagios-plugins 
+     - nagios-plugins-all
 
  - name: Copy the nrpe file to client machine
    template:
     src: templates/nrpe.cfg.j2
     dest: /etc/nagios/nrpe.cfg
 
+ - name: Ensure Ownership is changed to nagios
+   file:
+    path: /usr/lib64/nagios/plugins/
+    owner: nagios
+    group: nagios
+    recurse: yes
+    
  - name: Next Enable the service on boot up and restart the service
    service:
     name: nrpe
